@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-# gem "alembic-jekyll-theme"
+gem "alembic-jekyll-theme"
 gem "jekyll-feed"
 gem "jekyll-sitemap"
 gem "jekyll-mentions"
