@@ -4,6 +4,8 @@ categories:
 - Pruning
 feature_text: |
   Neural Network Pruning
+feature_image: "https://picsum.photos/2560/600?image=872"
+excerpt: "The main goal of neural network pruning is to reduce the size of the network complexity by removing the unwanted parts of the network. We will study one of important methods of pruning called Lottery Ticket Hypothesis"
 ---
 
 <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
@@ -71,7 +73,7 @@ original network after training for at most the same number of iterations." </b>
 	<br><br>
 	<h4>Mask criteria</h4>
 	<p>This includes the set of functions that decide which weighs to prune or to keep. If we keep the large weights in the network then criteria is named as large_final. In this way authors experiment with different strategies for pruning and the results are as shown below </p>
-	<img src="/deconstruting_resuts.png" style="width:1000px;height:600px;">
+	<img src="/assets/deconstruting_resuts.png" style="width:1000px;height:600px;">
 	<!-- <p style="margin-bottom:4cm;"></p> -->
 	<p>From the above figure we can infer that lottery ticket works well on different mask criteria not just only on large final weights criterion. This also says the pruned networks can exceed original network with different mask criteria.</p>
 	<h4>Significance of initial weights</h4>

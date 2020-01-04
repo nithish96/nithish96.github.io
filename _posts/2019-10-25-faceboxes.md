@@ -1,8 +1,11 @@
 ---
-title: Faceboxes for face detection
+title: Face detection
 categories:
 - Face detection
 feature_image: "https://picsum.photos/2560/600?image=872"
+feature_text: |
+  Faceboxes - A Real-time Face Detector
+excerpt: "Today we see a lot of neural networks that can achieve the human level performance but these neural networks are not readily deployable on edge devices due to their complexity. So today we will look at one of such attempts towards developing face detection systems for edge devices."
 ---
 
 
@@ -28,7 +31,7 @@ feature_image: "https://picsum.photos/2560/600?image=872"
 				<li> Anchor Densification Strategy</li>
 			</ol>
 	</p>
-	<img src="/facebox_arch.jpeg" style="width:1000px;height:200px;">
+	<img src="/assets/facebox_arch.jpeg" style="width:1000px;height:200px;">
 	<p></p>
 	<h3>Rapidly Digested Convolutional Layers</h3>
 		<p>
@@ -39,7 +42,7 @@ feature_image: "https://picsum.photos/2560/600?image=872"
 		</p>
 		<p> It is observed that filters in initial layers form the opposite pairs. Original output channels were decreased and then we use the C.ReLU to increase the output dimensionality. To be precise C.ReLU has two outputs: [x,0] for positive values of input and [0,x] for negative values of input. </p>
 	<h3>Multiple Scale Convolutional Layers</h3>
-		<p>First we will see how things are done without mult scale convolutions and then analyse the disadvantages of it. Finally how can multi scale convolutions overcome them. </p>
+		<p>First we will see how things are done without multi scale convolutions and then analyse the disadvantages of it. Finally how can multi scale convolutions overcome them. </p>
 		<h4> Region Proposal Networks (RPN) </h4>
 			<div>
 				<ul>
@@ -62,7 +65,7 @@ feature_image: "https://picsum.photos/2560/600?image=872"
 				<li>To avoid the problem of single receptive field in the network we can use the inception like networks. Advantage of these networks is that they have convolutions performed with different scales. This way we can capture the different scale of images in cost efficient approach. </li>
 			</ol>
 		</p>
-		<img src="/MSCL.png" style="width:600px;height:500px;">
+		<img src="/assets/MSCL.png" style="width:800px;height:500px;">
 	<h3>Anchor Densification Strategy</h3>
 		<p> Comparing with the large anchors small anchors are relatively sparse. This effects the recall rate of small faces. Inorder to solve this problem the authors propose anchor densification strategy. Idea of this method is to densify smaller anchors so an anchor is tiled n<sup>2</sup> times instead of doing it once. </p>
 	<h3>Loss function</h3>
