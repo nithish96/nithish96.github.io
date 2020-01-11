@@ -14,17 +14,17 @@ excerpt: "Today we see a lot of neural networks that can achieve the human level
 <div>
 	<h2>Introduction</h2>
 	<p>
-		Today we see a lot of neural networks that can achieve the human level performance in face detection and recognition systems. In general these kind of neural nets are trained using high performance computing machines that use GPUS.	But the developers who try to execute deep learning algorithms on the edge devices do not have this choice. So today we will look at one of such attempts towards developing face detection systems that can achieve high accuracy and performance at the same time.
+		We see a lot of neural networks these days, that can achieve the human level performance in face detection and recognition systems. In general neural networks are trained using high performance computing machines that use GPUS.	But the developers who try to execute deep learning algorithms on the edge devices do not have this choice. So today we will look at one of such attempts towards developing face detection systems that can achieve high accuracy and performance in real time.
 	</p>
 </div>
 
 <div>
 	<h2>Faceboxes</h2>
 	<p>
-		Early methods of face detection were done Using hand crafted features. These methods are non robust are they are independently trained for particular components. Face detection have also been motivated from the object detection based methods like RCNN. CNN based methods have achieved the state of art performance in detecting the faces from large variations. But they do come with the heavy computations which makes them difficult for deployment on the edge devices. The former methods are known for their speed and while the latter are known for their accuracy. 
+		Early methods of face detection were done using hand crafted features. These methods are non robust are they are independently trained for particular components. Face detection have also been motivated from the object detection based methods like RCNN. CNN based methods have achieved the state of art performance in detecting the faces from large variations. But they do come with the heavy computations which makes them difficult for deployment on the edge devices. The former methods are known for their speed and while the latter are known for their accuracy. 
 	</p>
 	<p>
-		Complete architecture of the model is shown in Figure 1. In this section we will look into contributions of the paper first and go through each one of them in detail. Three main contributions of the paper are as follows
+		Complete architecture of the Faceboxes is shown in Figure 1. We will look into contributions of the paper first and go through each one of them in detail. Three main contributions of the paper are as follows
 			<ol>
 				<li>Rapidly Digested Convolutional Layers</li>
 				<li>Multiple Scale Convolutional Layers</li>
@@ -40,9 +40,9 @@ excerpt: "Today we see a lot of neural networks that can achieve the human level
 		<p>
 			One of the easier ways of decreasing the input dimensionality is to use larger strides for convolution and pooling layers. Using lower kernel size in first few layers also speeds up the convolution operation. Often first convolutional layer is kept larger to alleviate the information loss that occured due to by spatial size reducing. 
 		</p>
-		<p> It is observed that filters in initial layers form the opposite pairs. Original output channels were decreased and then we use the C.ReLU to increase the output dimensionality. To be precise C.ReLU has two outputs: [x,0] for positive values of input and [0,x] for negative values of input. </p>
+		<p> It is observed that filters in initial layers form the opposite pairs. We take advantage of this method and use C.ReLU to increase the output dimensionality. To be precise C.ReLU has two outputs: [x,0] for positive values of input and [0,x] for negative values of input. </p>
 	<h3>Multiple Scale Convolutional Layers</h3>
-		<p>First we will see how things are done without multi scale convolutions and then analyse the disadvantages of it. Finally how can multi scale convolutions overcome them. </p>
+		<p>First we will see how things are done without multi scale convolutions and then analyse the disadvantages of it. Finally we discuss how multi scale convolutions overcome them. </p>
 		<h4> Region Proposal Networks (RPN) </h4>
 			<div>
 				<ul>
@@ -55,7 +55,7 @@ excerpt: "Today we see a lot of neural networks that can achieve the human level
 		<p>
 			<ol>
 				<li>Anchors are associated with the last convolutional layers which are weak to handle variance in different scale images.</li>
-				<li>Anchor associated layers have a single receptive field that cannot mactch the different sizes of image in image.</li>
+				<li>Anchor associated layers have a single receptive field that cannot match the different sizes of objects in an image.</li>
 			</ol>
 		</p>
 		<p>
@@ -67,7 +67,8 @@ excerpt: "Today we see a lot of neural networks that can achieve the human level
 		</p>
 		<img src="/assets/MSCL.png" style="width:800px;height:500px;">
 	<h3>Anchor Densification Strategy</h3>
-		<p> Comparing with the large anchors small anchors are relatively sparse. This effects the recall rate of small faces. Inorder to solve this problem the authors propose anchor densification strategy. Idea of this method is to densify smaller anchors so an anchor is tiled n<sup>2</sup> times instead of doing it once. </p>
+		<p> Comparing with the large anchors small anchors are relatively sparse. This effects the recall rate of small faces. Inorder to solve this problem the authors propose anchor densification strategy. Idea of this method is to densify smaller anchors so an anchor is tiled n<sup>2</sup> times instead of doing it once. Examples of this are shown in Figure 3.</p>
+		<img src="/assets/anchors.png" style="width:800px;height:700px;">
 	<h3>Loss function</h3>
 		<p>Loss function used to train is same as the multi task loss function used in training Faster RCNN[2]</p>
 		<div lang="latex">
