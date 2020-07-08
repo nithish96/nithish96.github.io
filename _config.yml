@@ -22,7 +22,7 @@ plugins:
 - jekyll-include-cache
 - jemoji
 
-paginate: 3 # jekyll-paginate > items per page
+paginate: 8 # jekyll-paginate > items per page
 paginate_path: blog/page:num # jekyll-paginate > blog page
 jekyll-mentions: https://twitter.com # jekyll-mentions > service used when @replying
 twitter:
