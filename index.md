@@ -8,45 +8,10 @@ excerpt: ""
 ---
 
 
-My name is Duvvuru Nithish. I have graduated with integrated masters in information technology from IIIT Bangalore in 2019. I am always on a lookout to the technology that helps in solving real life problems.  
-<br>
-{% include button.html text="Github Profile" icon="github" link="https://github.com/nithish96" color="#0366d6" %} {% include button.html text="CV" icon="twitter" link="" color="#0d94e7" %} 
+I am Duvvuru Nithish and I have graduated with integrated masters in information technology from IIIT Bangalore in 2019.
 
-<!-- {% include button.html text="Install Alembic ⚗️" link="https://github.com/daviddarnes/alembic#installation" %} {% include button.html text="Tip me $5 💸" link="https://www.paypal.me/daviddarnes/5usd" color="#333333" %} -->
+In past I have worked with multiple startups in both internship and full time roles. My interests lies towards the development of large scale Machine Learning systems that involve Computer Vision and NLP techniques. I am always on a lookout to the technology that helps in solving real life problems.  
 
-#### Experience
+I will be sharing some of my learning notes <a href="/blog">here</a>. Some of the projects that I have done in the past can be found <a href="/projects">here</a>. You can find more about me and my work in following profiles.
 
-**Aganitha Cognitive Solutions**<br>
-Classification of videos for detecting Anti Spoofing mechanisms <br>
-Worked on projects involving application of AI in pharma industry<br>
-Worked on Retrosynthesis using Reinforcement Learning.<br>
-
-
-**Fourth Frontier Technologies**<br>
-Implemented a convolutional neural network that helps in detecting types of heart arrhythmias from electrocardiograms (ECG). This was built in python using pytorch and tensorflow
-
-
-##### Publications
-**Improving Adversarial Images using Attention Maps** <br>
-Seetarama Raju, Nithish Duvvuru, Dinesh Babu Jayagopi <br>
-IEEE Joint International Information Technology and Artificial Intelligence Conference
-
-
-##### Projects
-
-- **Visual Question Answering** <br>
-Given a medical image with a relevant question, we need to answer the question based on the information from
-the input image. This was implemented in python using keras
-- **simple version control**<br>
-Implemented simple git features like init, stage, commit, version logs and differences between the previous and
-current versions. Developed final storage versions using dropbox API. This is built in python.
-- **Cloud Classification**<br>
-The essence of project is to detect cloud from different Landsat satellite images. We used hyperspectral unmixing
-and clustering algorithms for cloud classification. This was implemented using R.
-
-
-##### Interests
-
-1. Machine Learning
-2. Natural Language Processing
-3. Computer vision
+{% include button.html text="Github " icon="github" link="https://github.com/nithish96" color="#0366d6" %} {% include button.html text="Linkedin" icon="linkedin" link="https://www.linkedin.com/in/duvvuru-nithish" color="#0d94e7" %}

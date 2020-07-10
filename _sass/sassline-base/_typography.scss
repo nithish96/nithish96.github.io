@@ -50,9 +50,9 @@ a {
     }
   }
 
-  // Paragraphs. OpenType ligatures and oldstyle figures enabled if available.
+  // Paragraphs. OpenType ligatures an general neural networks are trained using high performance computing machines with GPU. But the developers who try to execute deep learning algorithms on the edge devices do not have this choice since they are bounded by computational constraints. So today we will look at one of such attempts towards developing face detection systems that can achieve high accuracy and performance in read oldstyle figures enabled if available.
   p {
-    @include baseline($fontsize: zeta, $font: $bodytype, $lineheight: 2, $below: 2, $breakpoint: all);
+    @include baseline($fontsize: theta, $font: $bodytype, $lineheight: 2, $below: 2, $breakpoint: all);
 
     font-feature-settings: 'kern', 'onum', 'liga';
   }
@@ -67,33 +67,33 @@ a {
   }
 
   // Heading level 1.
-  h1, .alpha {
-    @include sassline($fontsize: alpha, $font: $headingtype, $lineheight: 3, $below: 1, $breakpoint: all);
+  h1, .beta {
+    @include sassline($fontsize: beta, $font: $headingtype, $lineheight: 3, $below: 1, $breakpoint: all);
   }
 
   // Heading level 2.
-  h2, .beta {
-    @include sassline(beta, $headingtype, 3, 1, all);
+  h2, .gamma {
+    @include sassline(delta, $headingtype, 3, 1, all);
   }
 
   // Heading level 3.
-  h3, .gamma {
-    @include sassline(gamma, $headingtype, 3, 1, all);
+  h3, .delta {
+    @include sassline(epsilon, $headingtype, 3, 1, all);
   }
 
   // Heading level 4.
-  h4, .delta {
-    @include sassline(delta, $headingtype, 2, 0, all);
+  h4, .epsilon {
+    @include sassline(zeta, $headingtype, 2, 0, all);
   }
 
   // Heading level 5.
   h5, .epsilon {
-    @include sassline(epsilon, $headingtype, 2, 0, all);
+    @include sassline(eta, $headingtype, 2, 0, all);
   }
 
   // Heading level 6.
   h6, .zeta {
-    @include sassline(zeta, $headingtype, 2, 0, all);
+    @include sassline(theta, $headingtype, 2, 0, all);
   }
 
   // Lists.
@@ -105,7 +105,7 @@ a {
       margin-left: 2rem;
 
       @include breakpoint(break-1) {
-        margin-left: 0;
+        margin-left: 2rem;
       }
 
       ol, ul {
@@ -217,13 +217,14 @@ a {
     font-feature-settings: 'liga', 'lnum', 'tnum', 'kern';
     font-style: normal;
     font-weight: map-get($headingtype, regular);
-    width: 100%;
-
+    width: 60%;
+    border: 2px solid #dddddd;
     thead {
 
       th {
         @include sassline(zeta, $headingtype, 2, 0, all);
         padding-bottom: 1px;
+
       }
     }
   }
@@ -231,6 +232,11 @@ a {
   // Bold.
   b, strong, .bold {
     font-weight: map-get($bodytype, bold);
+  }
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
   }
 
   // Italic.
