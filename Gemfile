@@ -15,5 +15,5 @@ gem "jekyll-include-cache"
 gem "jemoji"
 gem 'commonmarker'
 gem 'jekyll-feed'
-
+gem 'kramdown-parser-gfm'
 # gemspec
