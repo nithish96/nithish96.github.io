@@ -5,7 +5,7 @@ categories:
 feature_text: |
   Lottery Ticket Hypothesis
 feature_image: "https://picsum.photos/2560/600?image=872"
-excerpt: "The main goal of neural network pruning is to reduce the size of the network complexity by removing the unwanted parts of the network. We will study one of important methods of pruning called Lottery Ticket Hypothesis"
+excerpt: "The main goal of neural network pruning is to reduce the size of the network (either by memory or execution time or both) by removing the unwanted parts of the network. Here, we will study one of important methods of pruning called Lottery Ticket Hypothesis."
 ---
 
 <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
@@ -13,11 +13,11 @@ excerpt: "The main goal of neural network pruning is to reduce the size of the n
 <div>
 <h3> Introduction</h3>
   <p>
-  The main goal of neural network pruning is to reduce the size of the network (either by memory or speed or both) by removing the unwanted parts of the network. Main motivation for network pruning is that there are many parameters in the network in which some of them might be redundant and doesnot contribute much to the output. Network pruning removes those unwanted parts of the network either by making them zero or removing them from the network. </p>
+  The main goal of neural network pruning is to reduce the size of the network (either by memory or execution time or both) by removing the unwanted parts of the network. Today we will study one of important methods of pruning called Lottery Ticket Hypothesis. Main motivation for network pruning is that there are many parameters in the network in which some of them might be redundant and doesnot contribute much to the output. Network pruning removes those unwanted parts of the network either by making them zero or removing them from the network. </p>
 
 <h3>Pruning and its types</h3>
 
-  Depending on the parts of the network that we prune, pruning can be classified into two types as follows.
+  Depending on the parts of the network that we prune, pruning can be classified into two types -
 		<ol>
 			<li>Structured Pruning - This involves pruning groups of elements like convolutional layer or channel. This is also known as coarse-grained pruning.</li>
 			<li>Unstructured Pruning - This involves pruning individual weights based on the connection importances. This is also known as fine grained pruning.</li>
@@ -29,7 +29,7 @@ excerpt: "The main goal of neural network pruning is to reduce the size of the n
 		<p>In single shot pruning we take a trained model and prune the unwanted channels. Typically there is a drop in accuracy when we prune some of the channels. Since pruning damages the learned function by the network, fine tuning is required for the pruned model to match the accuracy of original model.
 	</p>
 	 <p>
-		For example - Assume that we have 256 filters in particular layer i. Then if we want to remove filters that have lower magnitude (pruning criteria). Say there are 30 such filters that match pruning criteria then we remove all of these 30 filters. This reduces the number of filters in the pruned network. This way we do it for all the layers in the network there by reducing the memory footprint and the complexity of the network.
+		For example - Assume that we have 256 filters in particular layer i. Then if we want to remove filters that have lower magnitude (also known as pruning criteria). Say there are 30 such filters that match pruning criteria then we remove all of these 30 filters. This reduces the number of filters in the pruned network. This way we do it for all the layers in the network there by reducing the memory footprint and the complexity of the network.
 	</p>
 	<h4>Iterative Pruning</h4>
 	<p> It is observed that pruning followed by retraining has achieved better results than single shot pruning [Ref 4]. This is also known as Iterative pruning. Iterative pruning can be described as follows
@@ -52,13 +52,13 @@ original network after training for at most the same number of iterations." </i>
 
   According to the lottery ticket hypothesis there is a subnetwork in a network that can acheive the performance of the complete network. Any standard pruning technique finds those subnetwork from original network.
 
-  These subnetworks when initialized with initial parameters of the original network, they can acheive the performance of original network. These subnetworks are known as winning tickets since they have won initialisation lottery. If we initialize the parameters of the subnetwork randomly and train from scratch they no longer match the performance of the original network.  This tells us that smaller networks donot train effectively unless they are properly initialized.
+  These subnetworks when initialized with initial parameters of the original network, they can acheive the performance of original network. These subnetworks are known as winning tickets since they have won initialization lottery. If we initialize the parameters of the subnetwork randomly and train from scratch they no longer match the performance of the original network.  This tells us that smaller networks donot train effectively unless they are properly initialized. <br><br>
 </div>
 
 <h4>Finding subnetworks</h4>
 <div>
 	<ol>
-		<li>Initialise a network with initial parameters as <span lang="latex">\theta_{0} \sim D_{\theta} </span></li>
+		<li>Initialize a network with initial parameters as <span lang="latex">\theta_{0} \sim D_{\theta} </span></li>
 		<li>Train the network and lets say parameters are now <span lang="latex">\theta_{j}</span></li>
 		<li>Prune p% of params in <span lang="latex">\theta_{j}</span> creating mask m</li>
 		<li>Reset remaning params to their values in <span lang="latex">\theta_{0} </span> which creates winning ticket.</li>
@@ -68,7 +68,7 @@ original network after training for at most the same number of iterations." </i>
 <div>
 	<ol>
 		<li>Winning tickets learn faster than original network. Iteratively pruned winning tickets has the better generalisation than that of winning tickets that were pruned once.</li>
-		<li>If we initialise winning ticket with the random initialisation they tend to learn slower than the winning ticket with original initialisation</li>
+		<li>If we initialize winning ticket with the random initialization they tend to learn slower than the winning ticket with original initialization</li>
 		<li>Iterative pruning is computationally expensive because we have to train network and prune the network n times. However iteratively pruned winning tickets learn faster and achieve higher test accuracy at smaller networks</li>
 		<li>Since winning tickets are found using training data, it is safe to assume that structure of winning ticket has inductive bias to learning task being performed.</li>
 	</ol>
@@ -76,7 +76,7 @@ original network after training for at most the same number of iterations." </i>
 
 <div>
 	<h3>Deconstructing Lottery Ticket Hypothesis</h3>
-		While training the subnetworks, it is observed that these subnetworks had accuracy significantly better than chance at initialization. Untrained network with a mask resulted in a partially working network. The resulting masks are known as supermasks. In randomly initialized networks with large final masks (weights with large magnitude are kept) it is not entirely implausible since the masks are obtained from training.
+		While training the subnetworks, it is observed that these subnetworks had accuracy significantly better than chance at initialization. Untrained network with a mask resulted in a partially working network. The resulting masks are known as supermasks. In randomly initialized networks with large final masks (weights with large magnitude are kept) it is not entirely implausible since the masks are obtained from training.<br>
   <h4>Masking is Training</h4>
   <p>
     Masking does two things here - Zero the weights and freeze them. Authors experiment by setting the weights to initial value. If zeros doesnot matter both of them should have same accuracy. But networks seemed to perform better when the weights are frozen at zeros than random initial values.
@@ -92,11 +92,10 @@ original network after training for at most the same number of iterations." </i>
 	<p>This includes the set of functions that decide which weighs to prune or to keep. If we keep the weights with large magnitude in the network then criteria is named as large_final. Another criteria is magnitude increase - keep the weights that move most away from zero.  In this way authors experiment with different strategies for pruning and the results are as shown below </p>
 	<img src="/assets/deconstruting_resuts.png" style="width:1000px;height:600px;">
 	<!-- <p style="margin-bottom:4cm;"></p> -->
-	<p>From the above figure we can infer that lottery ticket works well on different mask criteria not just only on large final weights criterion. The results shows that pruned networks can exceed original network with different mask criteria.In general, we observe that those methods that bias towards keeping weights with large final magnitude are able to uncover performant subnetworks.</p>
+	<p>From the above figure we can infer that lottery ticket works well on different mask criteria not just only on large final weights criterion. The results shows that pruned networks can exceed original network with different mask criteria. In general, we observe that those methods that bias towards keeping weights with large final magnitude are able to uncover performant subnetworks.</p>
 	<h4>Significance of initial weights</h4>
-		<br>
 		<p>
-		Lottery ticket hypothesis says that pruned networks works better when they were rewind to their original initialisation. It turns out that pruned networks doesnot work well when they were initialised from same distribution or constant weights or reshuffle weights with in same layer. But surprisingly all of these methods works better when the initial sign of weights values in maintained. This suggests that reinitialization is not the deal breaker as long as you keep the sign. Optimizers can perform well for when weights are in correct quadrant and faces difficuly in crossing zero sign barriers. </p>
+		Lottery ticket hypothesis says that pruned networks works better when they were rewind to their original initialization. It turns out that pruned networks doesnot work well when they were initialized from same distribution or constant weights or reshuffle weights with in same layer. But surprisingly all of these methods works better when the initial sign of weights values in maintained. This suggests that reinitialization is not the deal breaker as long as you keep the sign. Optimizers can perform well for when weights are in correct quadrant and faces difficuly in crossing zero sign barriers. </p>
     <h4>Supermasks</h4>
     <p>
      Authors evaluate the supermasks with the single shot pruning rather than iterative pruning. They introduce new mask criteria large_final_same_sign i.e select for weights with large final magnitudes that maintained the same sign at the end of training. This resulted in networks that achi over 80% on MNIST and 24% on CIFAR without any training. Another observation is that when mask is applied with a signed constant subnetworks achieved even higher accuracy 86% on MNIST and 41% on CIFAR.

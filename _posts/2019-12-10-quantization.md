@@ -5,7 +5,7 @@ categories:
 feature_text:
   Neural Network Quantization
 feature_image: "https://picsum.photos/2560/600?image=872"
-excerpt: "Process of reducing the number of bits used to represent integer is termed as quantization. In this blog we will look into different types of quantization and quantization techniques used by tensorflow lite."
+excerpt: "Applications of deep learning models in edge devices has raised the need for the lower precision numerical formats like int8. In this post we will look into different types of quantization and quantization techniques used by tensorflow lite."
 ---
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -15,13 +15,13 @@ excerpt: "Process of reducing the number of bits used to represent integer is te
 <h2>Introduction</h2>
 <div>
 	<p>
-	 Process of reducing the number of bits used to represent integer is termed as quantization. Numerical format used in deep learning libraries is 32 bit floating point representation. Applications of deep learning models in the edge devices has raised the need for the lower precision numerical formats like int8. There is a good amount of literature which shows that weights and activations of the neural network can be represented with 8 bit integers without much loss in accuracy. 	
+	 Process of reducing the number of bits used to represent integer is termed as quantization. Applications of deep learning models in the edge devices has raised the need for the lower precision numerical formats like int8.  Numerical format used in deep learning libraries is 32 bit floating point representation. There is a good amount of literature which shows that weights and activations of the neural network can be represented with 8 bit integers without much loss in accuracy. 	
 	</p>
   <p>
-    Before diving into quantization lets go through some numerical representations. We have only certain bits to represent a real number in a computer. Some of the important ways to represent a number are fixed point representation and floating point representation. 
+    Before diving into quantization lets go through some numerical representations. We have only certain bits to represent a real number in a computer. Some of the important ways to represent a number are fixed point representation and floating point representation.
   </p>
 </div>
-    
+
 <h2>Fixed Point vs Floating point Representation</h2>
 
 <div>
@@ -114,46 +114,46 @@ Considering FP32 model and quantizing it to int4 or lower representation results
 <h3>Uniform Affine Quantizer</h3>
   Consider a floating point range \( (x_{min}, x_{max}) \) that needs to be quantized to the range \( (0, N-1) \) where N=256 for 8 bit quantization. We compute two parameters scale \( (\Delta) \) and Zero point (z) - that map the floating point range to integer range. Scale maps step size of the quantizer and floating point zero maps to zero point. Zero point is an integer with 0 to make sure that value 0 is quantized without any error or else zero padding can cause quantization error.
   <p>
-    For one sided distributions with range \( (x_{min}, x_{max}) \) zero is included in the range. For example floating point range \( (2.1, 3,5) \) is converted to range \( (0, 3.5) \) and then quantized. For extremely skewed distributions this can cause an low precision problem. 
+    For one sided distributions with range \( (x_{min}, x_{max}) \) zero is included in the range. For example floating point range \( (2.1, 3,5) \) is converted to range \( (0, 3.5) \) and then quantized. For extremely skewed distributions this can cause an low precision problem.
   </p>
   <p>
-    Once we have scale and zero point quantization can be done as follows. 
-     $$ \begin{align*} 
+    Once we have scale and zero point quantization can be done as follows.
+     $$ \begin{align*}
              x_{int} &= round(\frac{x}{\Delta} ) + z  \\
              x_Q &= clamp(0, N_{levels}-1, x_{int})  \\
             \end{align*} $$
-    where 
-     $$ \begin{align*} 
+    where
+     $$ \begin{align*}
         clamp(a,b,x) & = a  \hspace{0.5em} \text{if} \hspace{0.5em}x \lt a \\
                        & = b \hspace{0.5em} \text{if} \hspace{0.5em}x\gt b \\
-                       &= x \hspace{0.5em} \text{if} \hspace{0.5em}a \lt x \lt b 
+                       &= x \hspace{0.5em} \text{if} \hspace{0.5em}a \lt x \lt b
        \end{align*} $$
-  Dequantization can be performed as 
-   $$ \begin{align*} 
-             x_{float} &= ( x_{Q} - z ) \Delta 
+  Dequantization can be performed as
+   $$ \begin{align*}
+             x_{float} &= ( x_{Q} - z ) \Delta
             \end{align*} $$
   </p>
 <h3>Uniform symmetric quantizer</h3>
-  In this quantizer we restrict the zero point to 0. With symmetric quantizer quantization can be wriiten as 
-   $$ \begin{align*} 
+  In this quantizer we restrict the zero point to 0. With symmetric quantizer quantization can be wriiten as
+   $$ \begin{align*}
              x_{int} &= round(\frac{x}{\Delta} )  \\
              x_Q &= clamp(\frac{-N_{levels}}{2}, \frac{N_{levels}}{2}-1, x_{int})  \\
             \end{align*} $$
-    Dequantization can be performed as 
-   $$ \begin{align*} 
-             x_{float} &= ( x_{Q}) \Delta 
+    Dequantization can be performed as
+   $$ \begin{align*}
+             x_{float} &= ( x_{Q}) \Delta
             \end{align*} $$
     In symmetric quantizer range is completely not utilized. For example operations like Relu (whose value is always +ve) we might lose some precision here.  
-  
+
 <h3>Stochastic quantizer</h3>
-    Stochastic quantization models the quantization as an additive noise followed by rouding. Quantization can be written as 
-  $$ \begin{align*} 
+    Stochastic quantization models the quantization as an additive noise followed by rouding. Quantization can be written as
+  $$ \begin{align*}
              x_{int} &= round(\frac{x + \epsilon}{\Delta}) + z  \hspace{1.5em} \epsilon \in Unif(\frac{-1}{2}, \frac{1}{2} ) \\
              x_Q &= clamp(0, N_{levels}-1, x_{int})  \\
             \end{align*} $$
-    Dequantization can be performed as 
-   $$ \begin{align*} 
-             x_{float} &= ( x_{Q} - z ) \Delta 
+    Dequantization can be performed as
+   $$ \begin{align*}
+             x_{float} &= ( x_{Q} - z ) \Delta
             \end{align*} $$
 
 <h2>Quantization aware Training</h2>
@@ -165,7 +165,7 @@ Considering FP32 model and quantizing it to int4 or lower representation results
 </p>
 <h2>Learning Quantization Ranges</h2>
     Quantization ranges are treated differently for weight quantization and activation quantization. For weights the idea is to use a as min(w), b as max(w). For activations range depends on the inputs to the network. To estimate the ranges use the training data and then aggregate them via Exponential Moving Average(EMA). This allows network to enter a stable state where activation quantized ranges do not exclude significant range of values. In both the cases 0 is exactly represented as in integer after quantization.  
-  
+
 <h3>References</h3>
   <ol>
     <li><a href="https://www.ias.ac.in/public/Volumes/reso/021/01/0011-0030.pdf">IEEE Standard for FloatingPoint Numbers</a></li>
@@ -175,4 +175,4 @@ Considering FP32 model and quantizing it to int4 or lower representation results
     <li><a href="https://arxiv.org/pdf/1806.08342.pdf">Quantizing deep convolutional networks forefficient inference</a></li>
     <li><a href="https://openaccess.thecvf.com/content_cvpr_2018/papers/Jacob_Quantization_and_Training_CVPR_2018_paper.pdf">Quantization and Training of Neural Networks for EfficientInteger-Arithmetic-Only Inference</a></li>
 	</ol>
-</body> 
+</body>

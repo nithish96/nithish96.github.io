@@ -5,7 +5,7 @@ categories:
 feature_image: "https://picsum.photos/2560/600?image=872"
 feature_text: |
   Faceboxes - A Real-time Face Detector
-excerpt: "Today we see a lot of neural networks that can achieve the human level performance but these neural networks are not readily deployable on edge devices due to their complexity. So today we will look at one of such attempts towards developing face detection systems for edge devices."
+excerpt: "Today we see a lot of neural networks that can achieve the human level performance but these neural networks are not readily deployable on edge devices due to their complexity. In this post we will look at one of such attempts towards developing face detection systems for edge devices."
 ---
 
 
@@ -20,14 +20,14 @@ excerpt: "Today we see a lot of neural networks that can achieve the human level
 <div>
 	<h2>Introduction</h2>
 	<p>
-		We see a lot of neural networks these days, that can achieve the human level performance in face detection and recognition systems. In general neural networks are trained using high performance computing machines with GPU.	But the developers who try to execute deep learning algorithms on the edge devices do not have this choice as the devices have computational constraints. So today we will look at one of such attempts towards developing face detection systems that can achieve high accuracy and performance in real time.
+		We see a lot of neural networks these days, that can achieve the human level performance in face detection and recognition systems. In general neural networks are trained using high performance computing machines with GPU.	But the developers who try to execute deep learning algorithms on the edge devices do not have this choice as the devices have computational constraints. So today we will look at one of such attempts towards developing face detection systems that can achieve high accuracy with performance in real time.
 	</p>
 </div>
 
 <div>
 	<h2>Faceboxes</h2>
 	<p>
-		Early methods of face detection tried to design robust features and train classifiers. They were efficient on cpu but could not work for a large variation of faces. These methods are sub optimal as the features designed are non robust and optimized each component independently. Convolutional Neural Network or CNN have been introduced as the feature extractors for  Face detection task. CNN based methods have achieved the state of art performance in detecting the faces from large variations. But they do come with the heavy computations which makes them difficult for deployment on the edge devices. The former methods are known for their speed and while the latter are known for their accuracy.
+		Early methods of face detection tried to design robust features and train classifiers. They were efficient on cpu but could not work for a large variation of faces. These methods are sub optimal as the features designed are non robust and optimized each component independently. Convolutional Neural Network or CNN have been introduced as the feature extractors for  Face detection task. CNN based methods have achieved the state of art performance in detecting the faces from large variations. But they do come with the heavy computations which makes them difficult for deployment on edge devices. The former methods are known for their speed while the latter are known for their accuracy.
 	</p>
 	<p>
 		Faceboxes is a CNN based architecture that tries to achieve high accuracy for face detection in real time. Complete architecture of the Faceboxes is shown in Figure 1. We will look into contributions of the paper first and go through each one of them in detail. Three main contributions of the paper are as follows
@@ -41,13 +41,13 @@ excerpt: "Today we see a lot of neural networks that can achieve the human level
 	<p></p>
 	<h3>Rapidly Digested Convolutional Layers</h3>
 		<p>
-			When we have a high resolution input image and large kernel, convolutional operation is extremely costly to run on a CPU. The main goal of these RDCL layers is to decrease the input size in the earlier layers of network.
+			When we have a high resolution input image and large kernel, convolutional operation is extremely complex to run on a CPU. The main goal of these RDCL layers is to decrease the input size in the earlier layers of network.
 		</p>
     <p>
-      For example - Consider an Image of 224 x 224 x 3, filter of size 7 x 7 x 3 and number of filters as 64. Then number of computations of first layer are 472 Million i.e 64x(112 x 112 x 7 x 7 x 3)
+      For example - Consider an Image of 224 x 224 x 3, filter of size 7 x 7 x 3 and number of filters as 64. Then number of computations of first layer are 472 Million i.e 64x(224 x 224 x 7 x 7 x 3)
     </p>
     <p>
-			One of the easier ways of decreasing the input dimensionality is to use larger strides for convolution and pooling layers. Using lower kernel size in first few layers also speeds up the convolution operation. Often first convolutional layer is kept larger to alleviate the information loss that occured due to by spatial size reducing. We can have large filter size at first layer because the number of channels are only 3 for RGB image or 1 for Grayscale.
+			One of the easier ways of decreasing the input dimensionality is to use larger strides for convolution and pooling layers. Using lower kernel size in first few layers also speeds up the convolution operation. Often first convolutional layer is kept larger to alleviate the information loss that occured due to by spatial size reducing. We can have large filter size at first layer because the number of channels are only 3 for RGB image and 1 for Grayscale.
 		</p>
     <p> It is observed that filters in initial layers form the opposite pairs. We take advantage of this method and use C.ReLU to increase the output dimensionality. To be precise C.ReLU has two outputs: [x,0] for positive values of input and [0,x] for negative values of input. </p>
 	<h3>Multiple Scale Convolutional Layers.</h3>
