@@ -1,7 +1,7 @@
 ---
 title: Lottery ticket hypothesis
 categories:
-- Pruning
+- Neural Networks
 feature_text: |
   Lottery Ticket Hypothesis
 feature_image: "https://picsum.photos/2560/600?image=872"

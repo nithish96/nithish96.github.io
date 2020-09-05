@@ -1,7 +1,7 @@
 ---
 title: Neural Network Quantization
 categories:
-- Quantization
+- Neural Networks
 feature_text:
   Neural Network Quantization
 feature_image: "https://picsum.photos/2560/600?image=872"

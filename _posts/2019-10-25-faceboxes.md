@@ -1,7 +1,7 @@
 ---
 title: Faceboxes
 categories:
-- Face detection
+- Computer Vision
 feature_image: "https://picsum.photos/2560/600?image=872"
 feature_text: |
   Faceboxes - A Real-time Face Detector
