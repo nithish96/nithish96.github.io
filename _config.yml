@@ -44,7 +44,7 @@ timezone: Europe/London # Timezone for blog posts and alike
 
 collections:
   posts:
-    title: Random Musings of a Data Scientist # Needed for Siteleaf
+    title: Musings of a Data Scientist # Needed for Siteleaf
     output: true
     description: "" # The post list page content
     # feature_text: |
@@ -62,7 +62,7 @@ defaults:
 encoding: utf-8 # Make sure the encoding is right
 lang: en-GB # Set the site language
 title: "Duvvuru Nithish" # Site name or title, also used in jekyll-seo-tag
-creator: "David Darnes"
+# creator: "David Darnes"
 logo: "/assets/logos/logo.svg" # Site logo, also used in jekyll-seo-tag
 description: "My name is Duvvuru Nithish. I will be writing about my projects and sharing my knowledge here" # Site description and default description, also used in jekyll-seo-tag
 url: "https://nithish96.github.io" # Site url, also used in jekyll-seo-tag
