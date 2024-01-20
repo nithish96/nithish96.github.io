@@ -12,25 +12,25 @@
         <meta name="author" content="Nithish Duvvuru">
       
       
-        <link rel="canonical" href="https://nithish96.github.io/Computer%20Vision/Text%20Detection/craft/">
+        <link rel="canonical" href="https://nithish96.github.io/MLOps/docker/">
       
       
-        <link rel="prev" href="../../../Books/transformers/4.applications/">
+        <link rel="prev" href="../../Languages/python/threading/">
       
       
-        <link rel="next" href="../dbnet/">
+        <link rel="next" href="../kubernetes/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
     
     
       
-        <title>CRAFT - Nithish Duvvuru</title>
+        <title>Docker - Nithish Duvvuru</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
       
       
 
@@ -49,7 +49,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#craft" class="md-skip">
+        <a href="#docker" class="md-skip">
           Skip to content
         </a>
       
@@ -84,9 +84,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Nithish Duvvuru" class="md-header__button md-logo" aria-label="Nithish Duvvuru" data-md-component="logo">
+    <a href="../.." title="Nithish Duvvuru" class="md-header__button md-logo" aria-label="Nithish Duvvuru" data-md-component="logo">
       
-  <img src="../../../img/logo.bmp" alt="logo">
+  <img src="../../img/logo.bmp" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CRAFT
+              Docker
             
           </span>
         </div>
@@ -192,9 +192,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Nithish Duvvuru" class="md-nav__button md-logo" aria-label="Nithish Duvvuru" data-md-component="logo">
+    <a href="../.." title="Nithish Duvvuru" class="md-nav__button md-logo" aria-label="Nithish Duvvuru" data-md-component="logo">
       
-  <img src="../../../img/logo.bmp" alt="logo">
+  <img src="../../img/logo.bmp" alt="logo">
 
     </a>
     Nithish Duvvuru
@@ -295,7 +295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/0.intro/" class="md-nav__link">
+      <a href="../../Books/transformers/0.intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -316,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/1.transformer/" class="md-nav__link">
+      <a href="../../Books/transformers/1.transformer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -337,7 +337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/2.bert/" class="md-nav__link">
+      <a href="../../Books/transformers/2.bert/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -358,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/3.modifications/" class="md-nav__link">
+      <a href="../../Books/transformers/3.modifications/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -379,7 +379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/4.applications/" class="md-nav__link">
+      <a href="../../Books/transformers/4.applications/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -412,21 +412,19 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -440,7 +438,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Computer Vision
@@ -451,21 +449,19 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -479,7 +475,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             Text Detection
@@ -490,19 +486,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Computer%20Vision/Text%20Detection/craft/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -511,7 +498,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -524,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dbnet/" class="md-nav__link">
+      <a href="../../Computer%20Vision/Text%20Detection/dbnet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -590,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Text%20Recognition/vitstr/" class="md-nav__link">
+      <a href="../../Computer%20Vision/Text%20Recognition/vitstr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -656,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transformers/detr/" class="md-nav__link">
+      <a href="../../Computer%20Vision/transformers/detr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -677,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transformers/swin/" class="md-nav__link">
+      <a href="../../Computer%20Vision/transformers/swin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -698,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transformers/vit/" class="md-nav__link">
+      <a href="../../Computer%20Vision/transformers/vit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -808,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Languages/python/Multiprocessing/" class="md-nav__link">
+      <a href="../../Languages/python/Multiprocessing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -829,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Languages/python/threading/" class="md-nav__link">
+      <a href="../../Languages/python/threading/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -862,19 +848,21 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -888,7 +876,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             MLOps
@@ -899,10 +887,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../MLOps/docker/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -911,6 +917,123 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Engine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Images
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Containers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volumes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerfile-directives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerfile Directives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Registry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleanup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Hub
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -923,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MLOps/kubernetes/" class="md-nav__link">
+      <a href="../kubernetes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1025,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NLP/Courses/stanford/" class="md-nav__link">
+      <a href="../../NLP/Courses/stanford/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1071,8 +1194,113 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Engine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Images
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Containers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volumes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerfile-directives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerfile Directives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Registry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleanup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Hub
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1090,46 +1318,73 @@
   
 
 
-<h1 id="craft">CRAFT</h1>
-<p>CRAFT Architecture for Text Detection
-Overview
-The CRAFT architecture is designed for precise text detection in images, with a specific focus on handling curved or irregularly shaped text. It employs a combination of a VGG-16 backbone, Feature Pyramid Network (FPN), and Text-Attentional Refinement Network (TARNet) to achieve accurate and detailed text region localization.</p>
-<p><img alt="CRAFT Architecture" src="../../../img/craft.png" /></p>
-<p>Components</p>
-<ol>
-<li>
-<p>Backbone Network
-CRAFT uses a VGG-16 architecture as its backbone network. This well-established architecture is known for its effectiveness in computer vision tasks.</p>
-</li>
-<li>
-<p>Feature Pyramid Network (FPN)
-FPN is integrated to enhance the model's ability to detect text at various scales, crucial for handling text of different sizes within an image.</p>
-</li>
-<li>
-<p>Text-Attentional Refinement Network (TARNet)
-TARNet refines initial predictions using pixel-wise binary classification and an attentional mechanism. It aids in improving the accuracy of text region boundaries.</p>
-</li>
-<li>
-<p>Bounding Box Prediction
-CRAFT predicts text regions at the pixel level, providing detailed information about the vertices of each text instance. Instead of predicting rectangular bounding boxes, it predicts the four vertices.</p>
-</li>
-<li>
-<p>Loss Function
-The loss function combines pixel-wise binary classification loss and regression loss for vertex prediction. This dual-loss structure optimizes the model for accurate text localization.</p>
-</li>
-<li>
-<p>Post-processing (Quad-NMS)
-A Quad-NMS post-processing step is applied to eliminate redundant or overlapping predictions. It helps enhance the precision of text detection by suppressing non-maximum predictions.</p>
-</li>
-<li>
-<p>Training Data
-CRAFT is trained on datasets with annotated text regions. The training process involves optimizing the model's parameters based on a combination of binary classification loss and regression loss.</p>
-</li>
-<li>
-<p>Usage
-Once trained, CRAFT can be employed for text detection in various applications, including document analysis, scene text recognition, and image-based information retrieval.</p>
-</li>
-</ol>
+  <h1>Docker</h1>
+
+<h3 id="docker">Docker</h3>
+<p>Docker is a containerization platform that enables the development, deployment, and scaling of applications in isolated, lightweight containers. The key components of Docker include:</p>
+<h3 id="docker-engine"><strong>Docker Engine</strong></h3>
+<p>The core of Docker that runs and manages containers. This Consists of a daemon process (dockerd) and a command-line interface (CLI) tool (docker).</p>
+<ul>
+<li><code>docker --version</code>: Display Docker version.</li>
+<li><code>docker info</code>: Display system-wide information.</li>
+<li><code>docker help</code>: Display help information.</li>
+</ul>
+<h3 id="images"><strong>Images</strong></h3>
+<p>A lightweight, standalone, and executable package that includes everything needed to run a piece of software, such as the code, runtime, libraries, and system tools. Images are built from a Dockerfile and can be shared and versioned through Docker registries.</p>
+<ul>
+<li><code>docker images</code>: List all images.</li>
+<li><code>docker pull &lt;image&gt;</code>: Download an image from a repository.</li>
+<li><code>docker build -t &lt;tag&gt; .</code>: Build an image from the current directory's Dockerfile.</li>
+</ul>
+<h3 id="containers"><strong>Containers</strong></h3>
+<p>An instance of a Docker image that runs as a process on the host machine. Containers are isolated from each other and the host system, providing consistency across different environments.</p>
+<ul>
+<li><code>docker ps</code>: List running containers.</li>
+<li><code>docker ps -a</code>: List all containers (running and stopped).</li>
+<li><code>docker run &lt;image&gt;</code>: Create and start a container from an image.</li>
+<li><code>docker exec -it &lt;container&gt; &lt;command&gt;</code>: Execute a command in a running container.</li>
+</ul>
+<h3 id="networking"><strong>Networking</strong></h3>
+<p>Enables communication between Docker containers and between containers and the host system.  Docker provides various network drivers, and users can create custom networks to isolate and control traffic.</p>
+<ul>
+<li><code>docker network ls</code>: List all networks.</li>
+<li><code>docker network create &lt;name&gt;</code>: Create a network.</li>
+<li><code>docker run --network=&lt;network&gt; &lt;image&gt;</code>: Run a container in a specific network.</li>
+</ul>
+<h3 id="volumes"><strong>Volumes</strong></h3>
+<p>A persistent data storage mechanism in Docker. Volumes can be used to share data between containers, persist data beyond the lifecycle of a container, and facilitate easy data backup and restore. </p>
+<ul>
+<li><code>docker volume ls</code>: List all volumes.</li>
+<li><code>docker volume create &lt;name&gt;</code>: Create a volume.</li>
+<li><code>docker run -v &lt;volume&gt;:&lt;container_path&gt; &lt;image&gt;</code>: Mount a volume to a container.</li>
+</ul>
+<h3 id="compose"><strong>Compose</strong></h3>
+<p>A tool for defining and managing multi-container Docker applications using a YAML file (<code>docker-compose.yml</code>). Allows you to define the services, networks, and volumes required for an application, making it easier to manage complex deployments.</p>
+<ul>
+<li><code>docker-compose up</code>: Start services defined in <code>docker-compose.yml</code>.</li>
+<li><code>docker-compose down</code>: Stop and remove containers defined in <code>docker-compose.yml</code>.</li>
+</ul>
+<h3 id="dockerfile-directives"><strong>Dockerfile Directives</strong></h3>
+<p>A text file containing instructions for building a Docker image.  Defines the base image, adds application code, specifies dependencies, and configures runtime settings.
+- <code>FROM</code>: Base image for building.
+- <code>COPY</code>: Copy files or directories into the image.
+- <code>RUN</code>: Execute commands in the image.
+- <code>EXPOSE</code>: Specify ports to expose.
+- <code>CMD</code>: Default command to run when the container starts.</p>
+<h3 id="docker-registry"><strong>Docker Registry</strong></h3>
+<p>A centralized repository for storing and sharing Docker images. Examples include Docker Hub, a public registry, and private registries that organizations set up for their specific needs.</p>
+<ul>
+<li><code>docker login</code>: Log in to a Docker registry.</li>
+<li><code>docker push &lt;image&gt;</code>: Push an image to a registry.</li>
+<li><code>docker pull &lt;registry&gt;/&lt;image&gt;</code>: Pull an image from a registry.</li>
+</ul>
+<h3 id="cleanup"><strong>Cleanup</strong></h3>
+<ul>
+<li><code>docker system prune</code>: Remove all stopped containers, unused networks, and dangling images.</li>
+<li><code>docker volume prune</code>: Remove all unused volumes.</li>
+</ul>
+<h3 id="docker-hub"><strong>Docker Hub</strong></h3>
+<p>A cloud-based registry service provided by Docker for sharing and managing Docker images. Developers can push and pull images to and from Docker Hub, making it a central hub for the Docker community.</p>
 
 
 
@@ -1165,7 +1420,7 @@ Once trained, CRAFT can be employed for text detection in various applications, 
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../../Books/transformers/4.applications/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4. Applications">
+          <a href="../../Languages/python/threading/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Threading">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1175,20 +1430,20 @@ Once trained, CRAFT can be employed for text detection in various applications, 
                 Previous
               </span>
               <div class="md-ellipsis">
-                4. Applications
+                Threading
               </div>
             </div>
           </a>
         
         
           
-          <a href="../dbnet/" class="md-footer__link md-footer__link--next" aria-label="Next: DBNet">
+          <a href="../kubernetes/" class="md-footer__link md-footer__link--next" aria-label="Next: Kubernetes">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                DBNet
+                Kubernetes
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1222,12 +1477,12 @@ Once trained, CRAFT can be employed for text detection in various applications, 
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "navigation.instant", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer", "navigation.instant", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.7389ff0e.min.js"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
