@@ -12,13 +12,13 @@
         <meta name="author" content="Nithish Duvvuru">
       
       
-        <link rel="canonical" href="https://nithish96.github.io/Books/transformers/3.modifications/">
+        <link rel="canonical" href="https://nithish96.github.io/Computer%20Vision/Concepts/CTC%20Decoding/">
       
       
-        <link rel="prev" href="../2.bert/">
+        <link rel="prev" href="../../../Books/transformers/4.applications/">
       
       
-        <link rel="next" href="../4.applications/">
+        <link rel="next" href="../../Text%20Detection/craft/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>3. Modifications - Nithish Duvvuru</title>
+        <title>CTC Decoding - Nithish Duvvuru</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#3-modifications" class="md-skip">
+        <a href="#algorithm" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3. Modifications
+              CTC Decoding
             
           </span>
         </div>
@@ -238,21 +238,19 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -266,7 +264,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Books
@@ -277,21 +275,19 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -305,7 +301,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             Transformers
@@ -319,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../0.intro/" class="md-nav__link">
+      <a href="../../../Books/transformers/0.intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -340,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1.transformer/" class="md-nav__link">
+      <a href="../../../Books/transformers/1.transformer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -361,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.bert/" class="md-nav__link">
+      <a href="../../../Books/transformers/2.bert/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -379,30 +375,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    3. Modifications
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../Books/transformers/3.modifications/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -411,71 +387,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#lightweight-transformers" class="md-nav__link">
-    <span class="md-ellipsis">
-      LightWeight Transformers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#realformer" class="md-nav__link">
-    <span class="md-ellipsis">
-      RealFormer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transformer-xl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transformer XL
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#longformer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Longformer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reformer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reformer
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -488,7 +399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4.applications/" class="md-nav__link">
+      <a href="../../../Books/transformers/4.applications/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -521,19 +432,21 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -547,7 +460,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Computer Vision
@@ -558,19 +471,21 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
@@ -584,7 +499,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             Concepts
@@ -595,10 +510,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../Computer%20Vision/Concepts/CTC%20Decoding/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    CTC Decoding
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -607,6 +540,120 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decoding-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoding Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decoding Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#greedy-decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Greedy Decoding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beam-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beam Search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefix-beam-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prefix Beam Search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lexicon-constrained-decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lexicon-Constrained Decoding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#word-beam-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Word Beam Search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-path-decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Path Decoding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-passing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token Passing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -664,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Computer%20Vision/Text%20Detection/craft/" class="md-nav__link">
+      <a href="../../Text%20Detection/craft/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -685,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Computer%20Vision/Text%20Detection/dbnet/" class="md-nav__link">
+      <a href="../../Text%20Detection/dbnet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -751,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Computer%20Vision/Text%20Recognition/vitstr/" class="md-nav__link">
+      <a href="../../Text%20Recognition/vitstr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -817,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Computer%20Vision/transformers/Data-efficient%20Image%20Transformer%20%28DeiT%29/" class="md-nav__link">
+      <a href="../../transformers/Data-efficient%20Image%20Transformer%20%28DeiT%29/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -838,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Computer%20Vision/transformers/detr/" class="md-nav__link">
+      <a href="../../transformers/detr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -859,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Computer%20Vision/transformers/swin/" class="md-nav__link">
+      <a href="../../transformers/swin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -880,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Computer%20Vision/transformers/vit/" class="md-nav__link">
+      <a href="../../transformers/vit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1274,8 +1321,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1284,45 +1329,96 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lightweight-transformers" class="md-nav__link">
+  <a href="#algorithm" class="md-nav__link">
     <span class="md-ellipsis">
-      LightWeight Transformers
+      Algorithm
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#realformer" class="md-nav__link">
+  <a href="#decoding-types" class="md-nav__link">
     <span class="md-ellipsis">
-      RealFormer
+      Decoding Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decoding Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#greedy-decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Greedy Decoding
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#transformer-xl" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#beam-search" class="md-nav__link">
     <span class="md-ellipsis">
-      Transformer XL
+      Beam Search
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#longformer" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#prefix-beam-search" class="md-nav__link">
     <span class="md-ellipsis">
-      Longformer
+      Prefix Beam Search
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#lexicon-constrained-decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lexicon-Constrained Decoding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#word-beam-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Word Beam Search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-path-decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Path Decoding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-passing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token Passing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#reformer" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
-      Reformer
+      Conclusion
     </span>
   </a>
   
@@ -1346,70 +1442,63 @@
   
 
 
-<h1 id="3-modifications">3. Modifications</h1>
-<h3 id="lightweight-transformers">LightWeight Transformers</h3>
+  <h1>CTC Decoding</h1>
+
+<p>CTC (Connectionist Temporal Classification) decoding is a technique used in sequence-to-sequence tasks, such as speech and optical character recognition (OCR), where the alignment between input and output sequences is not given during training. CTC loss is commonly employed to train models for such tasks. During decoding, the goal is to find the most likely output sequence given the model's predictions.</p>
+<h4 id="algorithm">Algorithm</h4>
+<ol>
+<li>The input to CTC decoding is a sequence of probability distributions produced by the model for each time step. In the context of OCR, this would be the output of a character recognition model applied to an image.</li>
+<li>Convert the probabilities into a sequence of characters or symbols. This can be done by selecting the character with the highest probability at each time step.</li>
+<li>In the CTC context, it is common to introduce a special "blank" label denoted as "-", which represents gaps between characters. During decoding, duplicate characters and blank labels are typically removed or collapsed.</li>
+<li>Remove consecutive blank labels, leaving only a single blank between characters. This is done to ensure that adjacent characters are not merged into a single character.</li>
+<li>Merge repeated characters to obtain the final output sequence. This involves removing consecutive duplicate characters, leaving only one instance.</li>
+<li>The resulting sequence represents the decoded output. In OCR, this would be the recognized text.</li>
+</ol>
+<h3 id="decoding-types"><strong>Decoding Types</strong></h3>
+<p>During decoding, the goal is to transform the model's output (probability distributions over characters for each time step) into the final sequence of characters. Different decoding algorithms can be employed to achieve this. Here are some common types of decoding approaches in CTC</p>
+<h4 id="greedy-decoding"><strong>Greedy Decoding</strong></h4>
 <ul>
-<li>Funnel-Transformer compresses the output of a transformer encoder layer via pooling before it is passed to the next layer. </li>
-<li>Encoder - The standard transformer uses the same sequence length for all layers. Funnel-Transformer changes this by placing a pooling layer between the transformer layers to reduce the sequence length. Funnel-Transformer uses mean pooling with stride and window size both set to two.</li>
-<li>Decoder - To support token-level prediction tasks like  machine translation, Funnel-Transformer has an optional decoder that upsamples the compressed encoder output to a full sequence length</li>
-<li>When Funnel-Transformer decreases the sequence length and adds more layers, it per- forms better than the standard transformer on text classification. When the sequence length is decreases but the depth is not increased, performance decreases on GLUE text classification datasets.</li>
+<li>In Greedy Decoding, at each time step, the most likely character is selected as the output without considering future time steps.</li>
+<li>The output sequence is obtained by choosing the character with the highest probability at each time step.</li>
+<li>Greedy Decoding is simple but may not always yield the most accurate results, especially when there are uncertainties in the model's predictions.</li>
 </ul>
-<h3 id="realformer">RealFormer</h3>
+<h4 id="beam-search"><strong>Beam Search</strong></h4>
 <ul>
-<li>Residual Attention Layer Transformer adds residual scores to the raw attention logits of all attention heads from the previous layer of a transformer. 
-    $$Res. Attn (Q, K, V, Prev) = Softmax (\frac{QK^T}{\sqrt d} + Prev) V $$
-    where Prev is the attention logits from the previous transformer layer. </li>
-<li>This method can be applied to other transformer architectures, including to decoder layers.</li>
-<li>RealFormer generally performs better than the stan- dard transformer architecture, including its use in BERT, all without increasing the number of model parameters.</li>
+<li>Beam Search is a more advanced decoding algorithm that considers multiple hypotheses simultaneously.</li>
+<li>It maintains a set of candidate hypotheses (the beam) and expands them at each time step based on the model's probabilities.</li>
+<li>The width of the beam controls the number of candidate hypotheses considered, and it influences the trade-off between exploration and exploitation.</li>
+<li>Beam Search often produces better results than Greedy Decoding by exploring a broader range of possibilities.</li>
 </ul>
-<h3 id="transformer-xl">Transformer XL</h3>
+<h4 id="prefix-beam-search"><strong>Prefix Beam Search</strong></h4>
 <ul>
-<li>Transformer-XL was introduced because the standard transformer architecture’s fixed-width context window prevents it from learning the model dependencies that lie outside of its fixed window.</li>
-<li>Transformer-XL can handle dependencies 450% longer than the standard transformer and inference is ∼1800 times faster than the Transformer.</li>
-<li>Segment level recurrence- </li>
-<li>This works by using the previous segment of text as additional context when processing the current segment of text. </li>
-<li>In the standard transformer, the nth transformer layer takes the out- put of the previous layer (n − 1) as input
-    $$ h_t^n = Transformer(h_t^{n−1})$$</li>
-<li>When computing the output of the <span class="arithmatex">\(n^{th}\)</span> transformer layer for the current segment <span class="arithmatex">\(X_{t+1}\)</span>, we have a contribution from <span class="arithmatex">\(h_t^{n−1}\)</span>, 
-    $$ h_{t+1}^n = TransformerXL(h_{t+1}^{n−1}, h_t^{n−1})$$</li>
-<li>This modified attention incorporates information from the previous input sequence to compute a representation of the current input sequence. </li>
-<li>The transformer output for the current sequence depends on the transformer output for the previous sequence. The transformer output for the previous sequence depends on the sequence before that one and on the previous transformer layer.</li>
+<li>Prefix Beam Search is an extension of Beam Search that considers the possibility of ending the sequence early.</li>
+<li>It introduces a stopping criterion, allowing the algorithm to consider partial sequences and their likelihood of being completed successfully.</li>
+<li>This can be particularly useful when the true sequence length is uncertain.</li>
 </ul>
-<h3 id="longformer">Longformer</h3>
+<h4 id="lexicon-constrained-decoding"><strong>Lexicon-Constrained Decoding</strong></h4>
 <ul>
-<li>When calculating self-attention there are usually no restrictions on which positions in the sequence can attend to each other.</li>
-<li>Longformer changes this by restricting which positions can attend to each other according to specific patterns. </li>
-<li>This results in sparse attention weights across all heads and corresponds to deleting edges from the attention graph. </li>
-<li>Sliding Window Attention- </li>
-<li>Each token in a sequence is given a fixed-sized context window, w, so it can only attend to its neighbors. </li>
-<li>
-<p>This simple change reduces the complexity from one that is quadratic in the sequence length to one that is linear in the sequence length, O(Lw). </p>
-</li>
-<li>
-<p>Dilated Sliding Window Attention - </p>
-</li>
-<li>
-<p>This attention pattern extends the width of the sliding window attention by add gaps of size d in the context window. (Similar to stride in conv layers)</p>
-</li>
-<li>
-<p>Global Attention - </p>
-</li>
-<li>
-<p>The global attention pattern chooses lets some tokens attend to any other token in the sequence. In such cases, all tokens in the sequence attend to that token.</p>
-</li>
-<li>
-<p>Longformer decides which tokens are allowed to have global attention based on the training task. Longformer combines this global attention with the sliding window attention.</p>
-</li>
-<li>Longformer uses small window sizes for lower layers and larger window sizes for higher layers. This gives the higher layers a hierarchical nature. </li>
+<li>Lexicon-Constrained Decoding involves incorporating a lexicon or dictionary of valid words during the decoding process.</li>
+<li>The decoder explores only those paths that correspond to valid words, reducing the search space and potentially improving accuracy.</li>
 </ul>
-<h3 id="reformer">Reformer</h3>
+<h4 id="word-beam-search"><strong>Word Beam Search</strong></h4>
 <ul>
-<li>Reformer modifies attention mechanism to reduce memory usage by using reversible residual networks. </li>
-<li>Reformer can include context windows that are several orders of magnitude larger than a Transformer (up to 1M words).</li>
-<li>scaled dot-product attention in transformer has time complexity of O(<span class="arithmatex">\(L^2\)</span>), which becomes prohibitive as the number of tokens in the sequence i.e L, increases.</li>
-<li>Reformer uses locality-sensitive hashing to reduce the time complexity from O(<span class="arithmatex">\(L^2\)</span>) to O(L log L).</li>
-<li>Reformer addressesthe memory usage of the standard transformer using reversible residual layers.</li>
+<li>Word Beam Search is an extension of Beam Search designed specifically for tasks where the output consists of complete words.</li>
+<li>It incorporates language models and considers word-level probabilities to guide the decoding process.</li>
+<li>Word Beam Search aims to produce coherent and meaningful output sequences.</li>
 </ul>
+<h4 id="best-path-decoding"><strong>Best Path Decoding</strong></h4>
+<ul>
+<li>Best Path Decoding is a simplified decoding strategy where the output sequence is obtained by selecting the most likely path through the model's probability distribution.</li>
+<li>This is equivalent to Greedy Decoding but may be used when computational resources are limited.</li>
+</ul>
+<h4 id="token-passing"><strong>Token Passing</strong></h4>
+<ul>
+<li>Token Passing is an efficient decoding algorithm that uses a set of active tokens to represent possible hypotheses.</li>
+<li>At each time step, the tokens are updated based on the model's probabilities.</li>
+<li>Token Passing is particularly useful when dealing with very long sequences as it allows for efficient pruning of unlikely paths.</li>
+</ul>
+<h3 id="conclusion"><strong>Conclusion</strong></h3>
+<p>The choice of decoding algorithm depends on the specific requirements of the task, the nature of the data, and available computational resources. Beam Search is a widely used and effective decoding strategy, but other methods may be more suitable in certain scenarios, such as when a lexicon is available or when dealing with word-level outputs.</p>
 
 
 
@@ -1445,7 +1534,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../2.bert/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2. BERT">
+          <a href="../../../Books/transformers/4.applications/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4. Applications">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1455,20 +1544,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                2. BERT
+                4. Applications
               </div>
             </div>
           </a>
         
         
           
-          <a href="../4.applications/" class="md-footer__link md-footer__link--next" aria-label="Next: 4. Applications">
+          <a href="../../Text%20Detection/craft/" class="md-footer__link md-footer__link--next" aria-label="Next: CRAFT">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                4. Applications
+                CRAFT
               </div>
             </div>
             <div class="md-footer__button md-icon">
