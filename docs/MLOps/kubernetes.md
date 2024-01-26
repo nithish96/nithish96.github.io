@@ -1,3 +1,13 @@
+Kubernetes, often abbreviated as K8s, is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. Originally developed by Google and later donated to the Cloud Native Computing Foundation (CNCF), Kubernetes has become a standard for deploying and managing applications in containers.
+
+###  Key Kubernetes Concepts
+
+- **Nodes:** The physical or virtual machines that run your containers. Each node must have a container runtime (like Docker) installed.
+- **Pods:** The smallest deployable units in Kubernetes. Pods can contain one or more containers that share network and storage resources.
+- **Services:** An abstraction to expose a group of pods as a network service. Services enable communication between different parts of an application.
+- **ReplicaSets:** Ensure a specified number of pod replicas are running at all times. It's a way to achieve high availability and scalability.
+- **Deployments:** Provide declarative updates to applications. They describe the desired state for applications and manage the deployment process to achieve that state.
+- **ConfigMaps and Secrets:** Store configuration information and sensitive data separately from the application code.
 
 ### Pods
 
