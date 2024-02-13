@@ -245,3 +245,7 @@ df_concatenated = pd.concat([df1, df2], axis=0)
 ### **Conclusion**
 
 Pandas is an invaluable tool for anyone working with tabular data in Python. It provides a flexible and expressive framework for data manipulation, making it easier to clean, analyze, and visualize datasets. By mastering Pandas, you empower yourself to tackle a wide range of data-related tasks efficiently.
+
+### References 
+
+1. [Pandas documentation](https://pandas.pydata.org/docs/user_guide/index.html)

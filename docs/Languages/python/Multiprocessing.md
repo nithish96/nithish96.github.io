@@ -241,3 +241,8 @@ if __name__ == "__main__":
     worker_process.join()
 
 ```
+
+### References 
+
+1. [Multiprocessing documentation](https://docs.python.org/3/library/multiprocessing.html)
+2. [ Python Multiprocessing: The Complete Guide](https://superfastpython.com/multiprocessing-in-python/)

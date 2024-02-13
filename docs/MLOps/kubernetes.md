@@ -175,3 +175,8 @@ Custom Resources (CRs) and Custom Resource Definitions (CRDs) provide a way to e
 - Describe a custom resource instance.
     
 	 `kubectl describe <custom_resource> <name>` 
+
+
+### References 
+1. [ kubectl Quick Reference](https://kubernetes.io/docs/reference/kubectl/quick-reference/)
+2. [kubectl cheatsheet](https://www.bluematador.com/learn/kubectl-cheatsheet)

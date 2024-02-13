@@ -3,7 +3,7 @@
 CTC (Connectionist Temporal Classification) decoding is a technique used in sequence-to-sequence tasks, such as speech and optical character recognition (OCR), where the alignment between input and output sequences is not given during training. CTC loss is commonly employed to train models for such tasks. During decoding, the goal is to find the most likely output sequence given the model's predictions.
 
 
-#### Algorithm 
+### Algorithm 
 
 1. The input to CTC decoding is a sequence of probability distributions produced by the model for each time step. In the context of OCR, this would be the output of a character recognition model applied to an image.
 2. Convert the probabilities into a sequence of characters or symbols. This can be done by selecting the character with the highest probability at each time step.
@@ -12,7 +12,7 @@ CTC (Connectionist Temporal Classification) decoding is a technique used in sequ
 5.  Merge repeated characters to obtain the final output sequence. This involves removing consecutive duplicate characters, leaving only one instance.
 6. The resulting sequence represents the decoded output. In OCR, this would be the recognized text.
 
-###  **Decoding Types** 
+##  **Decoding Types** 
 
 During decoding, the goal is to transform the model's output (probability distributions over characters for each time step) into the final sequence of characters. Different decoding algorithms can be employed to achieve this. Here are some common types of decoding approaches in CTC
 #### **Greedy Decoding**

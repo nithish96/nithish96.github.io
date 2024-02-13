@@ -316,3 +316,8 @@ Thread-local data is a mechanism that allows each thread to have its own instanc
 
 
 In summary, the `threading` module provides a convenient way to work with threads in Python. It allows you to create, start, and manage threads, and includes features for synchronization and coordination between threads. Understanding these basics is crucial for developing concurrent and parallel programs in Python.
+
+### References
+
+1. [Threading documentation](https://docs.python.org/3/library/threading.html)
+2. [The threading module](https://python101.pythonlibrary.org/chapter21_thread.html)

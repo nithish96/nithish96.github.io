@@ -74,11 +74,75 @@ The transformer network outputs a set of predictions for each object query. The 
 - l1 loss will have different scales for small and large boxes even if their relative errors are similar. To mitigate this issue detr use a linear combination of the l1 loss and the generalized IoU loss. 
 
 
+## Sample Code
 
-### Conclusion 
+``` py 
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from torchvision.models import resnet50
+from torch.nn import TransformerEncoder, TransformerDecoder
+
+class DETR(nn.Module):
+    def __init__(self, num_classes, num_queries):
+        super(DETR, self).__init__()
+        # CNN backbone
+        self.backbone = resnet50(pretrained=True)
+        del self.backbone.fc  # remove the fully connected layer
+        
+        # Transformer encoder
+        self.transformer_encoder = TransformerEncoder(...)
+        
+        # Transformer decoder
+        self.transformer_decoder = TransformerDecoder(...)
+        
+        # Final layers for class prediction and bounding box prediction
+        self.class_pred = nn.Linear(...)
+        self.bbox_pred = nn.Linear(...)
+        
+        # Number of object queries
+        self.num_queries = num_queries
+        
+    def forward(self, x):
+        # CNN backbone
+        features = self.backbone(x)
+        
+        # Transformer encoder
+        enc_outputs = self.transformer_encoder(features)
+        
+        # Initialize object queries
+        tgt = torch.zeros(self.num_queries, features.shape[0], features.shape[1])
+        
+        # Transformer decoder
+        dec_outputs = self.transformer_decoder(tgt, enc_outputs)
+        
+        # Final predictions
+        class_logits = self.class_pred(dec_outputs)
+        bbox_pred = self.bbox_pred(dec_outputs)
+        
+        return class_logits, bbox_pred
+
+# Example usage:
+# Initialize DETR model
+num_classes = 80  # COCO dataset has 80 object classes
+num_queries = 100  # Number of object queries
+model = DETR(num_classes, num_queries)
+
+# Forward pass
+input_image = torch.randn(1, 3, 224, 224)  # Example input image
+class_logits, bbox_pred = model(input_image)
+
+# Output shapes: class_logits.shape = (num_queries, num_classes), bbox_pred.shape = (num_queries, 4)
+
+```
+## Conclusion 
 
 Overall, DeTR is a powerful object detection model that combines the strengths of both convolutional neural networks and transformer networks. By directly predicting the object bounding boxes and categories, DeTR eliminates the need for anchor boxes and achieves state-of-the-art performance on several object detection benchmarks.
 
 
+## References
+
+1. [End-to-End Object Detection with Transformers](https://arxiv.org/pdf/2005.12872.pdf)
+2. [Detection Transformer](https://github.com/facebookresearch/detr)
 
 
