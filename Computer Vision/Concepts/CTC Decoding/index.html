@@ -294,7 +294,7 @@
             
   
   <span class="md-ellipsis">
-    Transformers
+    UDL
   </span>
   
 
@@ -303,6 +303,135 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            UDL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Books/UDL/00.%20Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    00. Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Books/UDL/05.%20Loss%20Functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05. Loss Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Books/UDL/08.%20Measuring%20Performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08. Measuring Performance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Books/UDL/09.%20Regularization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09. Regularization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transformers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Transformers
           </label>
@@ -636,17 +765,17 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       Conclusion
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1410,17 +1539,17 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       Conclusion
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1445,7 +1574,7 @@
   <h1>CTC Decoding</h1>
 
 <p>CTC (Connectionist Temporal Classification) decoding is a technique used in sequence-to-sequence tasks, such as speech and optical character recognition (OCR), where the alignment between input and output sequences is not given during training. CTC loss is commonly employed to train models for such tasks. During decoding, the goal is to find the most likely output sequence given the model's predictions.</p>
-<h4 id="algorithm">Algorithm</h4>
+<h3 id="algorithm">Algorithm</h3>
 <ol>
 <li>The input to CTC decoding is a sequence of probability distributions produced by the model for each time step. In the context of OCR, this would be the output of a character recognition model applied to an image.</li>
 <li>Convert the probabilities into a sequence of characters or symbols. This can be done by selecting the character with the highest probability at each time step.</li>
@@ -1454,7 +1583,7 @@
 <li>Merge repeated characters to obtain the final output sequence. This involves removing consecutive duplicate characters, leaving only one instance.</li>
 <li>The resulting sequence represents the decoded output. In OCR, this would be the recognized text.</li>
 </ol>
-<h3 id="decoding-types"><strong>Decoding Types</strong></h3>
+<h2 id="decoding-types"><strong>Decoding Types</strong></h2>
 <p>During decoding, the goal is to transform the model's output (probability distributions over characters for each time step) into the final sequence of characters. Different decoding algorithms can be employed to achieve this. Here are some common types of decoding approaches in CTC</p>
 <h4 id="greedy-decoding"><strong>Greedy Decoding</strong></h4>
 <ul>
