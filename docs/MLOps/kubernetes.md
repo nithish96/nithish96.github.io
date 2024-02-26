@@ -149,6 +149,7 @@ Monitoring and debugging are critical aspects of managing a Kubernetes cluster. 
  - Describe a resource for troubleshooting.
  
 	 `kubectl describe <resource_type> <resource_name>` 
+
 ###  Persistent Volumes (PV)
 
 Persistent Volumes (PVs) are a way to provide durable storage for applications. PVs are part of the cluster's storage infrastructure, and they represent physical or networked storage resources in the cluster. They decouple storage provisioning from Pod lifecycle, allowing for the persistence of data even when Pods are rescheduled or recreated.
@@ -160,6 +161,7 @@ Persistent Volumes (PVs) are a way to provide durable storage for applications. 
 - Describe a persistent volume.
     
 	 `kubectl describe pv/<pv_name>` 
+
 ###  Custom Resources
 
 Custom Resources (CRs) and Custom Resource Definitions (CRDs) provide a way to extend the Kubernetes API and introduce custom objects with specific behaviors and semantics. Custom Resources allow users to define and manage application-specific resources beyond the built-in types like Pods, Services, and Deployments.
