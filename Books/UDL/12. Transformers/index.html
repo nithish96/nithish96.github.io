@@ -547,6 +547,90 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#encoder-example-bert" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder Example - BERT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encoder Example - BERT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pretraining" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pretraining
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finetuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finetuning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decoder-example-gpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoder Example - GPT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decoder Example - GPT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#language-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Language modeling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masked-self-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Masked Self Attention
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generating-text-from-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating Text from Decoder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoder-decoder-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder-Decoder Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
@@ -1617,6 +1701,90 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#encoder-example-bert" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder Example - BERT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encoder Example - BERT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pretraining" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pretraining
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finetuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finetuning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decoder-example-gpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoder Example - GPT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decoder Example - GPT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#language-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Language modeling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masked-self-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Masked Self Attention
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generating-text-from-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating Text from Decoder
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoder-decoder-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder-Decoder Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
@@ -1748,12 +1916,34 @@ P_{(pos, 2i)} = \sin\left(\frac{{pos}}{{10000^{2i/d}}}\right) \\
 </ul>
 </li>
 </ul>
+<h2 id="encoder-example-bert">Encoder Example - BERT</h2>
+<p>BERT is an encoder model that uses a vocabulary of 30,000 tokens. Input tokens are converted to 1024-dimensional word embeddings and passed through 24 transformer layers. Each contains a self-attention mechanism with 16 heads. The queries, keys, and values for each head are of dimension 64 i.e <span class="arithmatex">\(\Omega_q, \Omega_k, \Omega_v = 1024 \times 64\)</span>.  The dimension of the single hidden layer in the fully connected networks is 4096.  The total number of parameters is ∼ 340 million</p>
+<p>During pre-training, the parameters of the transformer architecture are learned using self-supervision from a large corpus of text. The goal here is for the model to learn general information about the statistics of language. In the fine-tuning stage, the resulting network is adapted to solve a particular task using a smaller body of supervised training data</p>
+<h3 id="pretraining">Pretraining</h3>
+<p>In the pre-training stage, the network is trained using self-supervision. For BERT, the self- supervision task consists of predicting missing words from sentences from a large internet corpus. During training, the maximum input length is 512 tokens, and the batch size is 256. The system is trained for a million steps, corresponding to roughly 50 epochs of the 3.3-billion word corpus. </p>
+<h3 id="finetuning">Finetuning</h3>
+<p>In the fine-tuning stage, the model parameters are adjusted to specialize the network to a particular task. An extra layer is appended onto the transformer network to convert the output vectors to the desired output format. </p>
+<ul>
+<li>Text classification - In BERT, a special token known as the classification or <span class="arithmatex">\(&lt;cls&gt;\)</span> token is placed at the start of each string during pre-training. For text classification tasks like sentiment analysis, the vector associated with the <span class="arithmatex">\(&lt;cls&gt;\)</span> token is mapped to a single number and passed through sigmoid function. </li>
+<li>Word Classification - The goal of named entity recognition is to classify each word as an entity type. To this end, each input embedding xn is mapped to an E × 1 vector where the E entries correspond to the E entity types. This is passed through softmax function. </li>
+<li>Text span prediction - BERT can be used to predict the text span in the passage that contains the answer in question answering task. Each token maps to two numbers indicating how likely it is that the text span begins and ends at this location. The resulting two sets of numbers are put through two softmax functions.</li>
+</ul>
+<h2 id="decoder-example-gpt">Decoder Example - GPT</h2>
+<h3 id="language-modeling">Language modeling</h3>
+<p>GPT3 constructs an autoregressive language model.  An autoregressive language model  is a specific type of natural language processing (NLP) model that predicts the next word in a sequence based on its previous words. </p>
+<h3 id="masked-self-attention">Masked Self Attention</h3>
+<p>In a standard self-attention mechanism, each token in the input sequence is represented as a query, a key, and a value vector. These vectors are used to compute attention scores between the token and every other token in the sequence.  Hence, the system can cheat by looking at the right words rather than learn to predict the following words and will not train properly. </p>
+<p>So masking is applied to the attention mechanism to prevent tokens from attending to subsequent tokens in the sequence. This can be achieved by setting the corresponding dot products in the self-attention computation to negative infinity before passing to softmax function. </p>
+<h3 id="generating-text-from-decoder">Generating Text from Decoder</h3>
+<p>Since GPT defines a probability model over text sequences, it can be used to sample new examples of plausible text. To generate from the model, we start with an input sequence of text and feed this into the network, which then outputs the probabilities over possible subsequent tokens. We can then either pick the most likely token or sample from this probability distribution. The new extended sequence can be fed back into the decoder network that outputs the probability distribution over the next token. By repeating this process, we can generate large bodies of text. </p>
+<h2 id="encoder-decoder-example">Encoder-Decoder Example</h2>
 <h2 id="references">References</h2>
 <ol>
 <li><a href="https://udlbook.github.io/udlbook/">Understanding Deep Learning</a></li>
 <li><a href="https://kazemnejad.com/blog/transformer_architecture_positional_encoding/">Positional Encoding </a></li>
 <li><a href="https://nlp.seas.harvard.edu/2018/04/03/attention.html">The Annotated Transformer</a></li>
 <li><a href="https://theaisummer.com/transformer/">Transformer</a></li>
+<li><a href="https://amaarora.github.io/posts/2020-02-18-annotatedGPT2.html">The Annotated GPT 2</a></li>
 </ol>
 
 
