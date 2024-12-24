@@ -12,13 +12,13 @@
         <meta name="author" content="Nithish Duvvuru">
       
       
-        <link rel="canonical" href="https://nithish96.github.io/Computer%20Vision/transformers/swin/">
+        <link rel="canonical" href="https://nithish96.github.io/Books/LLM%20From%20Scratch/Chapter%202/">
       
       
-        <link rel="prev" href="../detr/">
+        <link rel="prev" href="../../..">
       
       
-        <link rel="next" href="../vit/">
+        <link rel="next" href="../Chapter%203/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Swin Transformer - Nithish Duvvuru</title>
+        <title>2. Working with Text Data - Nithish Duvvuru</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#swin-transformer" class="md-skip">
+        <a href="#2-working-with-text-data" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Swin Transformer
+              2. Working with Text Data
             
           </span>
         </div>
@@ -238,17 +238,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -262,7 +264,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Books
@@ -273,17 +275,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -297,7 +301,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             LLM From Scratch
@@ -308,10 +312,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../Books/LLM%20From%20Scratch/Chapter%202/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2. Working with Text Data
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -320,6 +344,140 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-understanding-word-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Understanding Word Embeddings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tokenizing-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Tokenizing Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-converting-tokens-into-token-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Converting Tokens into Token IDs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-adding-special-context-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Adding Special Context Tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-byte-pair-encoding-bpe" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Byte Pair Encoding (BPE)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-data-sampling-with-a-sliding-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Data Sampling with a Sliding Window
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-creating-token-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Creating Token Embeddings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-encoding-word-positions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 Encoding Word Positions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-implementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Implementations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -332,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/LLM%20From%20Scratch/Chapter%203/" class="md-nav__link">
+      <a href="../Chapter%203/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -353,7 +511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/LLM%20From%20Scratch/Chapter%204/" class="md-nav__link">
+      <a href="../Chapter%204/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -374,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/LLM%20From%20Scratch/Chapter%205/" class="md-nav__link">
+      <a href="../Chapter%205/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -395,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/LLM%20From%20Scratch/Chapter%206/" class="md-nav__link">
+      <a href="../Chapter%206/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -416,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/LLM%20From%20Scratch/Chapter%207/" class="md-nav__link">
+      <a href="../Chapter%207/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -480,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/UDL/00.%20Introduction/" class="md-nav__link">
+      <a href="../../UDL/00.%20Introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -501,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/UDL/05.%20Loss%20Functions/" class="md-nav__link">
+      <a href="../../UDL/05.%20Loss%20Functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -522,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/UDL/08.%20Measuring%20Performance/" class="md-nav__link">
+      <a href="../../UDL/08.%20Measuring%20Performance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -543,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/UDL/12.%20Transformers/" class="md-nav__link">
+      <a href="../../UDL/12.%20Transformers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/0.intro/" class="md-nav__link">
+      <a href="../../transformers/0.intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -628,7 +786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/1.transformer/" class="md-nav__link">
+      <a href="../../transformers/1.transformer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -649,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/2.bert/" class="md-nav__link">
+      <a href="../../transformers/2.bert/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -670,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/3.modifications/" class="md-nav__link">
+      <a href="../../transformers/3.modifications/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -691,7 +849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/4.applications/" class="md-nav__link">
+      <a href="../../transformers/4.applications/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -724,19 +882,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -750,7 +906,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Computer Vision
@@ -799,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Concepts/Attention/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/Concepts/Attention/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -820,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Concepts/CTC%20Decoding/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/Concepts/CTC%20Decoding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -884,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Text%20Detection/craft/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/Text%20Detection/craft/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -905,7 +1061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Text%20Detection/dbnet/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/Text%20Detection/dbnet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -969,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Text%20Recognition/vitstr/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/Text%20Recognition/vitstr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -995,19 +1151,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
           <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
@@ -1021,7 +1175,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             Transformers
@@ -1035,7 +1189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Data-efficient%20Image%20Transformer%20%28DeiT%29/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/transformers/Data-efficient%20Image%20Transformer%20%28DeiT%29/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1056,7 +1210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../detr/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/transformers/detr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1074,30 +1228,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Swin Transformer
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/transformers/swin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1106,95 +1240,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Architecture
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#patch-embeddings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Patch Embeddings
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#patch-merging" class="md-nav__link">
-    <span class="md-ellipsis">
-      Patch Merging
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shifted-window-attention" class="md-nav__link">
-    <span class="md-ellipsis">
-      Shifted Window Attention
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#classification-head" class="md-nav__link">
-    <span class="md-ellipsis">
-      Classification Head
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1207,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vit/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/transformers/vit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1792,55 +1837,91 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+  <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture
+      Key Concepts
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Architecture">
+    <nav class="md-nav" aria-label="Key Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#patch-embeddings" class="md-nav__link">
+  <a href="#21-understanding-word-embeddings" class="md-nav__link">
     <span class="md-ellipsis">
-      Patch Embeddings
+      2.1 Understanding Word Embeddings
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#patch-merging" class="md-nav__link">
+  <a href="#22-tokenizing-text" class="md-nav__link">
     <span class="md-ellipsis">
-      Patch Merging
+      2.2 Tokenizing Text
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#shifted-window-attention" class="md-nav__link">
+  <a href="#23-converting-tokens-into-token-ids" class="md-nav__link">
     <span class="md-ellipsis">
-      Shifted Window Attention
+      2.3 Converting Tokens into Token IDs
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#classification-head" class="md-nav__link">
+  <a href="#24-adding-special-context-tokens" class="md-nav__link">
     <span class="md-ellipsis">
-      Classification Head
+      2.4 Adding Special Context Tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-byte-pair-encoding-bpe" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Byte Pair Encoding (BPE)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-data-sampling-with-a-sliding-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Data Sampling with a Sliding Window
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-creating-token-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Creating Token Embeddings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-encoding-word-positions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 Encoding Word Positions
     </span>
   </a>
   
@@ -1852,9 +1933,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#practical-implementations" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      Practical Implementations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
     </span>
   </a>
   
@@ -1878,27 +1968,118 @@
   
 
 
-<h1 id="swin-transformer">Swin Transformer</h1>
-<h2 id="introduction">Introduction</h2>
-<p>Swin Transformer is a recently proposed transformer architecture for image classification tasks. The model was proposed in a paper titled "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows" by Ze Liu et al. Swin Transformer introduces a novel hierarchical architecture that divides the input image into a hierarchy of windows and processes them using a series of transformer blocks. Here's an overview of the Swin Transformer architecture:</p>
-<h2 id="architecture">Architecture</h2>
-<p><img alt="Swin Transformer Architecture" src="../../../img/swin_transformer.png" /></p>
-<h3 id="patch-embeddings">Patch Embeddings</h3>
-<p>First step in Swin Transformer is same as vision transformer. Convert an image into fixed patches of patch size 4x4. Then each patch is linearly embedded using a linear projection layer. This can be done using convolution 2d using kernel size and stride 4.  maps each window to a vector representation using a learnable embedding layer. The embeddings are then passed through a series of transformer blocks, which perform multi-head self-attention and feedforward operations.</p>
-<h3 id="patch-merging">Patch Merging</h3>
-<p>The first patch merging layer concatenates the features of each group of 2×2 neighboring patches, and applies a linear layer on the 4C - dimensional concatenated features. This reduces the number of tokens by a multiple of 2×2 = 4 (2× downsampling of resolution) and the output dimension is set to 2C. The number of tokens is reduced by patch merging layers as the network gets deeper. </p>
-<h3 id="shifted-window-attention">Shifted Window Attention</h3>
-<p>At every stage in swin transformer, there are sequence of swin transformer blocks in tandem. Multi attention in  Standard transformer block is replaced using Shifted window self attention followed by 2 layered MLP and GELU. A LayerNorm (LN) layer is applied before each MSA module and each MLP, and a residual connection is applied after each module. </p>
-<p>The global computation leads to quadratic complexity with respect to the number of tokens, making it unsuitable for many vision problems. For efficient modeling, we propose to compute self-attention within local windows. The windows are arranged to evenly partition the image in a non-overlapping manner.</p>
-<p>The window-based self-attention module lacks connections across windows, which limits its modeling power. To introduce cross-window connections while maintaining the efficient computation of non-overlapping windows, we propose a shifted window partitioning approach which alternates between two partitioning configurations in consecutive Swin Transformer blocks.</p>
-<p>In first module feature map is evenly divided into small patches with local self attention. In second layer we displace the windows by (M/2, M/2) pixels from the regularly partitioned windows, and perform attention between these new windows. This leads to cross-window connections. 
-<img alt="Swin Transformer Architecture" src="../../../img/swin_layer.png" /></p>
-<h3 id="classification-head">Classification Head</h3>
-<p>Swin Transformer uses a simple linear layer to map the output embeddings to a set of class probabilities. The model is trained using a cross-entropy loss function, which measures the difference between the predicted probabilities and the true labels.</p>
-<h2 id="conclusion">Conclusion</h2>
-
-<h2 id="conclusion">Conclusion</h2>
-<p>Overall, Swin Transformer is a powerful transformer architecture for image classification tasks that uses a novel hierarchical processing strategy and shifted windows to capture both local and global features. The model achieves state-of-the-art performance on several benchmark datasets, including ImageNet and COCO.</p>
+<h1 id="2-working-with-text-data">2. Working with Text Data</h1>
+<h2 id="overview">Overview</h2>
+<p>This chapter dives into the essential steps required to prepare text data for training large language models (LLMs). It meticulously details processes for converting raw text into a structured format suitable for machine learning models, including tokenization, embedding creation, and data sampling.</p>
+<p>The main topics covered are:</p>
+<ol>
+<li><strong>Preparing Text for Training</strong></li>
+<li>Splitting text into tokens (words or subwords).</li>
+<li>Tokenizing using byte pair encoding (BPE).</li>
+<li>Understanding the relationship between text and numerical data representation.</li>
+<li><strong>Converting Tokens into IDs</strong></li>
+<li>Translating tokens into numerical representations for processing.</li>
+<li>Building a vocabulary for consistent token-ID mapping.</li>
+<li><strong>Adding Special Context Tokens</strong></li>
+<li>Introducing markers to handle unknown words and distinguish document boundaries.</li>
+<li><strong>Data Sampling with a Sliding Window</strong></li>
+<li>Generating overlapping input-target pairs for better context learning.</li>
+<li><strong>Creating Token Embeddings</strong></li>
+<li>Mapping token IDs to continuous dense vector representations.</li>
+<li><strong>Encoding Word Positions</strong></li>
+<li>Incorporating positional information into embeddings for sequential data processing.</li>
+</ol>
+<hr />
+<h2 id="key-concepts">Key Concepts</h2>
+<h3 id="21-understanding-word-embeddings">2.1 Understanding Word Embeddings</h3>
+<ul>
+<li>Neural networks cannot process raw categorical text directly, necessitating the transformation of words into numerical vectors.</li>
+<li><strong>Embeddings</strong> are dense vector representations of categorical data, allowing for efficient learning and generalization.</li>
+<li>Techniques such as <strong>Word2Vec</strong> train models to generate embeddings by analyzing the context in which words appear.</li>
+<li>Word embeddings cluster semantically similar words in the same region of the vector space, enhancing interpretability.</li>
+</ul>
+<h3 id="22-tokenizing-text">2.2 Tokenizing Text</h3>
+<ul>
+<li>Tokenization is the process of breaking down text into smaller units (tokens) such as words, subwords, or punctuation.</li>
+<li>Example of tokenization:</li>
+<li>Input: <code>"Hello, world!"</code></li>
+<li>Tokens: <code>['Hello', ',', 'world', '!']</code></li>
+<li>Libraries like SpaCy, NLTK, or manual regular expressions can perform tokenization, with different levels of customization and accuracy.</li>
+</ul>
+<h3 id="23-converting-tokens-into-token-ids">2.3 Converting Tokens into Token IDs</h3>
+<ul>
+<li>A <strong>vocabulary</strong> is created by assigning each token a unique numerical ID.</li>
+<li>Example:</li>
+<li>Vocabulary: <code>{'Hello': 1, ',': 2, 'world': 3, '!': 4}</code></li>
+<li>Tokenized Input: <code>[1, 2, 3, 4]</code></li>
+<li>These token IDs form the bridge between categorical text and numerical processing.</li>
+</ul>
+<h3 id="24-adding-special-context-tokens">2.4 Adding Special Context Tokens</h3>
+<ul>
+<li>Special tokens handle specific requirements in LLMs:</li>
+<li><code>&lt;|unk|&gt;</code>: Represents unknown or out-of-vocabulary words.</li>
+<li><code>&lt;|endoftext|&gt;</code>: Marks the boundary between independent text samples.</li>
+<li>These additions improve model robustness by ensuring proper handling of edge cases.</li>
+</ul>
+<h3 id="25-byte-pair-encoding-bpe">2.5 Byte Pair Encoding (BPE)</h3>
+<ul>
+<li>BPE is a method for splitting rare or unseen words into subwords, reducing the size of the vocabulary while improving generalization.</li>
+<li>Example:</li>
+<li>Word: <code>"unimaginable"</code></li>
+<li>Subwords: <code>['un', 'imagin', 'able']</code></li>
+<li>This technique ensures efficient encoding of diverse linguistic structures.</li>
+</ul>
+<h3 id="26-data-sampling-with-a-sliding-window">2.6 Data Sampling with a Sliding Window</h3>
+<ul>
+<li>A <strong>sliding window</strong> generates overlapping input-target sequences, enabling models to capture continuous context efficiently.</li>
+<li>Example:<ul>
+<li>Input Sequence: <code>['The', 'cat', 'sat']</code></li>
+<li>Target Sequence: <code>['cat', 'sat', 'on']</code></li>
+</ul>
+</li>
+<li>This approach ensures robust learning from limited datasets.</li>
+</ul>
+<h3 id="27-creating-token-embeddings">2.7 Creating Token Embeddings</h3>
+<ul>
+<li><strong>Token Embeddings</strong> map token IDs to high-dimensional dense vectors optimized during training.</li>
+<li>Each token has a unique vector representation that encodes semantic and syntactic information, essential for deep learning tasks.</li>
+</ul>
+<h3 id="28-encoding-word-positions">2.8 Encoding Word Positions</h3>
+<ul>
+<li>Positional encoding integrates sequential information into embeddings, enabling models to understand the order of tokens.</li>
+<li>Methods like sinusoidal encodings are commonly used, ensuring unique positional information for each token.</li>
+</ul>
+<hr />
+<h2 id="practical-implementations">Practical Implementations</h2>
+<ol>
+<li><strong>Custom Tokenizer Implementation</strong></li>
+<li>Tokenizers preprocess raw text by splitting it into tokens and assigning unique IDs.</li>
+<li>
+<p>They manage special tokens for unknown words and document boundaries to enhance context understanding.</p>
+</li>
+<li>
+<p><strong>Sliding Window Data Generation</strong></p>
+</li>
+<li>A sliding window mechanism creates overlapping data samples for training, ensuring efficient utilization of text context.</li>
+<li>
+<p>This method provides overlapping input-output pairs, crucial for sequential learning tasks.</p>
+</li>
+<li>
+<p><strong>Embedding Layer Initialization</strong></p>
+</li>
+<li>Embedding layers are initialized with random weights and refined during model training.</li>
+<li>
+<p>These layers translate token IDs into dense vectors compatible with neural network processing.</p>
+</li>
+<li>
+<p><strong>Positional Encoding Implementation</strong></p>
+</li>
+<li>Positional encodings are computed and added to token embeddings to represent order-specific relationships.</li>
+<li>This allows the model to differentiate between permutations of the same tokens.</li>
+</ol>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>Chapter 2 provides an in-depth exploration of preparing text data for training large language models. From tokenization and vocabulary creation to embedding generation and positional encoding, this chapter equips readers with the foundational tools for processing text data. By meticulously structuring text input, these methods enable LLMs to learn complex linguistic relationships, paving the way for effective training and generalization.</p>
 
 
 
@@ -1934,7 +2115,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../detr/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Detection Transformer">
+          <a href="../../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1944,20 +2125,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Detection Transformer
+                Home
               </div>
             </div>
           </a>
         
         
           
-          <a href="../vit/" class="md-footer__link md-footer__link--next" aria-label="Next: Vision Transformer">
+          <a href="../Chapter%203/" class="md-footer__link md-footer__link--next" aria-label="Next: 3. Coding Attention Mechanisms">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Vision Transformer
+                3. Coding Attention Mechanisms
               </div>
             </div>
             <div class="md-footer__button md-icon">
