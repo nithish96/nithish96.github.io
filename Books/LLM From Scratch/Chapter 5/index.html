@@ -12,13 +12,13 @@
         <meta name="author" content="Nithish Duvvuru">
       
       
-        <link rel="canonical" href="https://nithish96.github.io/Computer%20Vision/transformers/swin/">
+        <link rel="canonical" href="https://nithish96.github.io/Books/LLM%20From%20Scratch/Chapter%205/">
       
       
-        <link rel="prev" href="../detr/">
+        <link rel="prev" href="../Chapter%204/">
       
       
-        <link rel="next" href="../vit/">
+        <link rel="next" href="../Chapter%206/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Swin Transformer - Nithish Duvvuru</title>
+        <title>5. Pretraining on Unlabeled Data - Nithish Duvvuru</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#swin-transformer" class="md-skip">
+        <a href="#5-pretraining-on-unlabeled-data" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Swin Transformer
+              5. Pretraining on Unlabeled Data
             
           </span>
         </div>
@@ -238,17 +238,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -262,7 +264,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Books
@@ -273,17 +275,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -297,7 +301,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             LLM From Scratch
@@ -311,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/LLM%20From%20Scratch/Chapter%202/" class="md-nav__link">
+      <a href="../Chapter%202/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/LLM%20From%20Scratch/Chapter%203/" class="md-nav__link">
+      <a href="../Chapter%203/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -353,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/LLM%20From%20Scratch/Chapter%204/" class="md-nav__link">
+      <a href="../Chapter%204/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -371,10 +375,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../Books/LLM%20From%20Scratch/Chapter%205/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    5. Pretraining on Unlabeled Data
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -383,6 +407,185 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-evaluating-generative-text-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Evaluating Generative Text Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Evaluating Generative Text Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-using-gpt-for-text-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1 Using GPT for Text Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-calculating-text-generation-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2 Calculating Text Generation Loss
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513-calculating-training-and-validation-losses" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.3 Calculating Training and Validation Losses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-training-an-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Training an LLM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Training an LLM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataset-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dataset Preparation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-decoding-strategies-to-control-randomness" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Decoding Strategies to Control Randomness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Decoding Strategies to Control Randomness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531-temperature-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.1 Temperature Scaling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532-top-k-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.2 Top-k Sampling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533-modifying-the-text-generation-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.3 Modifying the Text Generation Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-saving-and-loading-model-weights-in-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Saving and Loading Model Weights in PyTorch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -395,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/LLM%20From%20Scratch/Chapter%206/" class="md-nav__link">
+      <a href="../Chapter%206/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -416,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/LLM%20From%20Scratch/Chapter%207/" class="md-nav__link">
+      <a href="../Chapter%207/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -480,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/UDL/00.%20Introduction/" class="md-nav__link">
+      <a href="../../UDL/00.%20Introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -501,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/UDL/05.%20Loss%20Functions/" class="md-nav__link">
+      <a href="../../UDL/05.%20Loss%20Functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -522,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/UDL/08.%20Measuring%20Performance/" class="md-nav__link">
+      <a href="../../UDL/08.%20Measuring%20Performance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -543,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/UDL/12.%20Transformers/" class="md-nav__link">
+      <a href="../../UDL/12.%20Transformers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/0.intro/" class="md-nav__link">
+      <a href="../../transformers/0.intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -628,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/1.transformer/" class="md-nav__link">
+      <a href="../../transformers/1.transformer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -649,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/2.bert/" class="md-nav__link">
+      <a href="../../transformers/2.bert/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -670,7 +873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/3.modifications/" class="md-nav__link">
+      <a href="../../transformers/3.modifications/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -691,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Books/transformers/4.applications/" class="md-nav__link">
+      <a href="../../transformers/4.applications/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -724,19 +927,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -750,7 +951,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Computer Vision
@@ -799,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Concepts/Attention/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/Concepts/Attention/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -820,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Concepts/CTC%20Decoding/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/Concepts/CTC%20Decoding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -884,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Text%20Detection/craft/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/Text%20Detection/craft/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -905,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Text%20Detection/dbnet/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/Text%20Detection/dbnet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -969,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Text%20Recognition/vitstr/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/Text%20Recognition/vitstr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -995,19 +1196,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
           <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
@@ -1021,7 +1220,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             Transformers
@@ -1035,7 +1234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Data-efficient%20Image%20Transformer%20%28DeiT%29/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/transformers/Data-efficient%20Image%20Transformer%20%28DeiT%29/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1056,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../detr/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/transformers/detr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1074,30 +1273,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Swin Transformer
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/transformers/swin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1106,95 +1285,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Architecture
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#patch-embeddings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Patch Embeddings
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#patch-merging" class="md-nav__link">
-    <span class="md-ellipsis">
-      Patch Merging
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shifted-window-attention" class="md-nav__link">
-    <span class="md-ellipsis">
-      Shifted Window Attention
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#classification-head" class="md-nav__link">
-    <span class="md-ellipsis">
-      Classification Head
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1207,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vit/" class="md-nav__link">
+      <a href="../../../Computer%20Vision/transformers/vit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1792,55 +1882,136 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+  <a href="#key-components" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture
+      Key Components
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Architecture">
+    <nav class="md-nav" aria-label="Key Components">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#patch-embeddings" class="md-nav__link">
+  <a href="#51-evaluating-generative-text-models" class="md-nav__link">
     <span class="md-ellipsis">
-      Patch Embeddings
+      5.1 Evaluating Generative Text Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Evaluating Generative Text Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-using-gpt-for-text-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1 Using GPT for Text Generation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#patch-merging" class="md-nav__link">
+  <a href="#512-calculating-text-generation-loss" class="md-nav__link">
     <span class="md-ellipsis">
-      Patch Merging
+      5.1.2 Calculating Text Generation Loss
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#shifted-window-attention" class="md-nav__link">
+  <a href="#513-calculating-training-and-validation-losses" class="md-nav__link">
     <span class="md-ellipsis">
-      Shifted Window Attention
+      5.1.3 Calculating Training and Validation Losses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-training-an-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Training an LLM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Training an LLM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataset-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dataset Preparation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-decoding-strategies-to-control-randomness" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Decoding Strategies to Control Randomness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Decoding Strategies to Control Randomness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531-temperature-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.1 Temperature Scaling
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#classification-head" class="md-nav__link">
+  <a href="#532-top-k-sampling" class="md-nav__link">
     <span class="md-ellipsis">
-      Classification Head
+      5.3.2 Top-k Sampling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533-modifying-the-text-generation-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.3 Modifying the Text Generation Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-saving-and-loading-model-weights-in-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Saving and Loading Model Weights in PyTorch
     </span>
   </a>
   
@@ -1852,9 +2023,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#practical-implementation" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      Practical Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
     </span>
   </a>
   
@@ -1878,27 +2058,109 @@
   
 
 
-<h1 id="swin-transformer">Swin Transformer</h1>
-<h2 id="introduction">Introduction</h2>
-<p>Swin Transformer is a recently proposed transformer architecture for image classification tasks. The model was proposed in a paper titled "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows" by Ze Liu et al. Swin Transformer introduces a novel hierarchical architecture that divides the input image into a hierarchy of windows and processes them using a series of transformer blocks. Here's an overview of the Swin Transformer architecture:</p>
-<h2 id="architecture">Architecture</h2>
-<p><img alt="Swin Transformer Architecture" src="../../../img/swin_transformer.png" /></p>
-<h3 id="patch-embeddings">Patch Embeddings</h3>
-<p>First step in Swin Transformer is same as vision transformer. Convert an image into fixed patches of patch size 4x4. Then each patch is linearly embedded using a linear projection layer. This can be done using convolution 2d using kernel size and stride 4.  maps each window to a vector representation using a learnable embedding layer. The embeddings are then passed through a series of transformer blocks, which perform multi-head self-attention and feedforward operations.</p>
-<h3 id="patch-merging">Patch Merging</h3>
-<p>The first patch merging layer concatenates the features of each group of 2×2 neighboring patches, and applies a linear layer on the 4C - dimensional concatenated features. This reduces the number of tokens by a multiple of 2×2 = 4 (2× downsampling of resolution) and the output dimension is set to 2C. The number of tokens is reduced by patch merging layers as the network gets deeper. </p>
-<h3 id="shifted-window-attention">Shifted Window Attention</h3>
-<p>At every stage in swin transformer, there are sequence of swin transformer blocks in tandem. Multi attention in  Standard transformer block is replaced using Shifted window self attention followed by 2 layered MLP and GELU. A LayerNorm (LN) layer is applied before each MSA module and each MLP, and a residual connection is applied after each module. </p>
-<p>The global computation leads to quadratic complexity with respect to the number of tokens, making it unsuitable for many vision problems. For efficient modeling, we propose to compute self-attention within local windows. The windows are arranged to evenly partition the image in a non-overlapping manner.</p>
-<p>The window-based self-attention module lacks connections across windows, which limits its modeling power. To introduce cross-window connections while maintaining the efficient computation of non-overlapping windows, we propose a shifted window partitioning approach which alternates between two partitioning configurations in consecutive Swin Transformer blocks.</p>
-<p>In first module feature map is evenly divided into small patches with local self attention. In second layer we displace the windows by (M/2, M/2) pixels from the regularly partitioned windows, and perform attention between these new windows. This leads to cross-window connections. 
-<img alt="Swin Transformer Architecture" src="../../../img/swin_layer.png" /></p>
-<h3 id="classification-head">Classification Head</h3>
-<p>Swin Transformer uses a simple linear layer to map the output embeddings to a set of class probabilities. The model is trained using a cross-entropy loss function, which measures the difference between the predicted probabilities and the true labels.</p>
-<h2 id="conclusion">Conclusion</h2>
-
-<h2 id="conclusion">Conclusion</h2>
-<p>Overall, Swin Transformer is a powerful transformer architecture for image classification tasks that uses a novel hierarchical processing strategy and shifted windows to capture both local and global features. The model achieves state-of-the-art performance on several benchmark datasets, including ImageNet and COCO.</p>
+<h1 id="5-pretraining-on-unlabeled-data">5. Pretraining on Unlabeled Data</h1>
+<h2 id="overview">Overview</h2>
+<p>Chapter 5 focuses on the foundational process of pretraining a large language model (LLM) like GPT. Pretraining involves teaching the model to predict the next word in a sequence using large, unlabeled datasets. This stage helps the model learn general language patterns, syntax, and semantics, forming the foundation for downstream tasks.</p>
+<p>Key topics include:</p>
+<ol>
+<li>Evaluating text generation capabilities.</li>
+<li>Computing training and validation losses.</li>
+<li>Implementing pretraining procedures.</li>
+<li>Using decoding strategies to control randomness.</li>
+<li>Saving and loading model weights.</li>
+</ol>
+<hr />
+<h2 id="key-components">Key Components</h2>
+<h3 id="51-evaluating-generative-text-models">5.1 Evaluating Generative Text Models</h3>
+<h4 id="511-using-gpt-for-text-generation">5.1.1 Using GPT for Text Generation</h4>
+<ul>
+<li>Text generation is the primary task of GPT during pretraining.</li>
+<li>The model generates text by iteratively predicting the next token based on the input sequence.</li>
+<li>Evaluation involves:</li>
+<li>Providing a prompt (e.g., "Once upon a time...").</li>
+<li>Measuring the quality and coherence of the generated output.</li>
+</ul>
+<h4 id="512-calculating-text-generation-loss">5.1.2 Calculating Text Generation Loss</h4>
+<ul>
+<li>Loss measures how well the model predicts the next word in a sequence.</li>
+<li>Loss functions such as <strong>cross-entropy</strong> are used, where lower loss indicates better performance.</li>
+</ul>
+<h4 id="513-calculating-training-and-validation-losses">5.1.3 Calculating Training and Validation Losses</h4>
+<ul>
+<li><strong>Training loss</strong>: Assesses the model's performance on the training dataset.</li>
+<li><strong>Validation loss</strong>: Measures the model's ability to generalize to unseen data.</li>
+<li>Monitoring these losses helps identify overfitting or underfitting.</li>
+</ul>
+<h3 id="52-training-an-llm">5.2 Training an LLM</h3>
+<ul>
+<li>Training involves:</li>
+<li>Tokenizing the input dataset.</li>
+<li>Feeding tokenized data into the model.</li>
+<li>Computing loss and updating weights via backpropagation.</li>
+<li>Optimization techniques such as <strong>Adam</strong> or <strong>AdamW</strong> are employed for stable training.</li>
+</ul>
+<h4 id="dataset-preparation">Dataset Preparation</h4>
+<ul>
+<li>Large and diverse datasets are essential for pretraining.</li>
+<li>Examples include web crawls, books, and encyclopedias.</li>
+<li>Data cleaning and deduplication improve training quality.</li>
+</ul>
+<h3 id="53-decoding-strategies-to-control-randomness">5.3 Decoding Strategies to Control Randomness</h3>
+<ul>
+<li>Decoding strategies affect the quality and diversity of generated text:</li>
+</ul>
+<h4 id="531-temperature-scaling">5.3.1 Temperature Scaling</h4>
+<ul>
+<li>Controls randomness by scaling the logits before applying softmax.</li>
+<li>Higher temperatures increase diversity but may reduce coherence.</li>
+<li>Lower temperatures produce more deterministic outputs.</li>
+</ul>
+<h4 id="532-top-k-sampling">5.3.2 Top-k Sampling</h4>
+<ul>
+<li>Limits predictions to the top-k most probable tokens, improving coherence.</li>
+<li>Reduces the likelihood of low-probability tokens disrupting the output.</li>
+</ul>
+<h4 id="533-modifying-the-text-generation-function">5.3.3 Modifying the Text Generation Function</h4>
+<ul>
+<li>Custom implementations can combine strategies like top-k sampling and temperature scaling for fine-grained control.</li>
+</ul>
+<h3 id="54-saving-and-loading-model-weights-in-pytorch">5.4 Saving and Loading Model Weights in PyTorch</h3>
+<ul>
+<li>Saving weights allows for resuming training or deploying the model:</li>
+<li>Save weights using <code>torch.save</code>.</li>
+<li>Load weights with <code>torch.load</code>.</li>
+<li>Models can also load pretrained weights from publicly available sources to save computation costs.</li>
+</ul>
+<hr />
+<h2 id="practical-implementation">Practical Implementation</h2>
+<ol>
+<li><strong>Pretraining Loop</strong></li>
+<li>Iterates through batches of tokenized data.</li>
+<li>
+<p>Computes loss and updates weights at each step.</p>
+</li>
+<li>
+<p><strong>Monitoring Losses</strong></p>
+</li>
+<li>Tracks training and validation losses to ensure steady progress.</li>
+<li>
+<p>Implements early stopping to prevent overfitting.</p>
+</li>
+<li>
+<p><strong>Decoding Text</strong></p>
+</li>
+<li>
+<p>Experiments with various decoding strategies to evaluate generated text.</p>
+</li>
+<li>
+<p><strong>Weight Management</strong></p>
+</li>
+<li>Saves model checkpoints periodically during training.</li>
+<li>Ensures reproducibility by storing training metadata.</li>
+</ol>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>Chapter 5 provides a comprehensive guide to pretraining LLMs on unlabeled data. By focusing on efficient loss computation, decoding strategies, and weight management, it equips readers to train robust models capable of generalizing across diverse language tasks. The foundation established here enables fine-tuning and application in real-world scenarios.</p>
 
 
 
@@ -1934,7 +2196,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../detr/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Detection Transformer">
+          <a href="../Chapter%204/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4. Implementing a GPT Model from Scratch">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1944,20 +2206,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Detection Transformer
+                4. Implementing a GPT Model from Scratch
               </div>
             </div>
           </a>
         
         
           
-          <a href="../vit/" class="md-footer__link md-footer__link--next" aria-label="Next: Vision Transformer">
+          <a href="../Chapter%206/" class="md-footer__link md-footer__link--next" aria-label="Next: 6. Fine-tuning for Classification">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Vision Transformer
+                6. Fine-tuning for Classification
               </div>
             </div>
             <div class="md-footer__button md-icon">
