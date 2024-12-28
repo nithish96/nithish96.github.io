@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://nithish96.github.io/Books/LLM%20From%20Scratch/Chapter%202/">
       
       
-        <link rel="prev" href="../../..">
+        <link rel="prev" href="../CHapter%200/">
       
       
         <link rel="next" href="../Chapter%203/">
@@ -312,6 +312,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../CHapter%200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -367,16 +388,7 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Concepts
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Concepts">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -457,18 +469,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#practical-implementations" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Practical Implementations
+      Summary
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      References
     </span>
   </a>
   
@@ -1843,16 +1855,7 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Concepts
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Concepts">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1933,18 +1936,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#practical-implementations" class="md-nav__link">
+  <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Practical Implementations
+      Summary
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      References
     </span>
   </a>
   
@@ -1970,33 +1973,26 @@
 
 <h1 id="2-working-with-text-data">2. Working with Text Data</h1>
 <h2 id="overview">Overview</h2>
-<p>This chapter dives into the essential steps required to prepare text data for training large language models (LLMs). It meticulously details processes for converting raw text into a structured format suitable for machine learning models, including tokenization, embedding creation, and data sampling.</p>
+<p>This chapter dives into the essential steps required to prepare text data for training large language models (LLMs). It explains processes for converting raw text into a structured format suitable for machine learning models, including tokenization, embedding creation, and data sampling.</p>
 <p>The main topics covered are:</p>
 <ol>
-<li><strong>Preparing Text for Training</strong></li>
-<li>Splitting text into tokens (words or subwords).</li>
-<li>Tokenizing using byte pair encoding (BPE).</li>
-<li>Understanding the relationship between text and numerical data representation.</li>
-<li><strong>Converting Tokens into IDs</strong></li>
-<li>Translating tokens into numerical representations for processing.</li>
-<li>Building a vocabulary for consistent token-ID mapping.</li>
-<li><strong>Adding Special Context Tokens</strong></li>
-<li>Introducing markers to handle unknown words and distinguish document boundaries.</li>
-<li><strong>Data Sampling with a Sliding Window</strong></li>
-<li>Generating overlapping input-target pairs for better context learning.</li>
-<li><strong>Creating Token Embeddings</strong></li>
-<li>Mapping token IDs to continuous dense vector representations.</li>
-<li><strong>Encoding Word Positions</strong></li>
-<li>Incorporating positional information into embeddings for sequential data processing.</li>
+<li>Preparing Text for Training</li>
+<li>Converting Tokens into IDs</li>
+<li>Adding Special Context Tokens</li>
+<li>Data Sampling with a Sliding Window</li>
+<li>Creating Token Embeddings</li>
+<li>Encoding Word Positions</li>
 </ol>
 <hr />
-<h2 id="key-concepts">Key Concepts</h2>
-<h3 id="21-understanding-word-embeddings">2.1 Understanding Word Embeddings</h3>
+<h3 id="21-understanding-word-embeddings"><strong>2.1 Understanding Word Embeddings</strong></h3>
 <ul>
 <li>Neural networks cannot process raw categorical text directly, necessitating the transformation of words into numerical vectors.</li>
-<li><strong>Embeddings</strong> are dense vector representations of categorical data, allowing for efficient learning and generalization.</li>
-<li>Techniques such as <strong>Word2Vec</strong> train models to generate embeddings by analyzing the context in which words appear.</li>
+<li>Embeddings are dense vector representations of categorical data, allowing for efficient learning and generalization.</li>
+<li>Techniques such as Word2Vec train models to generate embeddings by analyzing the context in which words appear.</li>
 <li>Word embeddings cluster semantically similar words in the same region of the vector space, enhancing interpretability.</li>
+<li>Word embeddings with higher dimensionality might capture more nuanced relationships but at the cost of computational efficiency.</li>
+<li>LLMs commonly produce their own embeddings that are part of the input layer and are updated during training. </li>
+<li>GPT-2 models use an embedding size of 768 dimensions. The largest GPT-3 model uses an embedding size of 12,288 dimensions.</li>
 </ul>
 <h3 id="22-tokenizing-text">2.2 Tokenizing Text</h3>
 <ul>
@@ -2008,7 +2004,7 @@
 </ul>
 <h3 id="23-converting-tokens-into-token-ids">2.3 Converting Tokens into Token IDs</h3>
 <ul>
-<li>A <strong>vocabulary</strong> is created by assigning each token a unique numerical ID.</li>
+<li>A vocabulary is created by assigning each token a unique numerical ID.</li>
 <li>Example:</li>
 <li>Vocabulary: <code>{'Hello': 1, ',': 2, 'world': 3, '!': 4}</code></li>
 <li>Tokenized Input: <code>[1, 2, 3, 4]</code></li>
@@ -2020,7 +2016,28 @@
 <li><code>&lt;|unk|&gt;</code>: Represents unknown or out-of-vocabulary words.</li>
 <li><code>&lt;|endoftext|&gt;</code>: Marks the boundary between independent text samples.</li>
 <li>These additions improve model robustness by ensuring proper handling of edge cases.</li>
+<li>Example implementation of tokenizer would be as follows </li>
 </ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span> <span class="nc">SimpleTokenizerV2</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>      <span class="bp">self</span><span class="o">.</span><span class="n">str_to_int</span> <span class="o">=</span> <span class="n">vocab</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>      <span class="bp">self</span><span class="o">.</span><span class="n">int_to_str</span> <span class="o">=</span> <span class="p">{</span> <span class="n">i</span><span class="p">:</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="n">vocab</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>   <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>      <span class="n">preprocessed</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([,.:;?_!&quot;()</span><span class="se">\&#39;</span><span class="s1">]|--|</span><span class="se">\\</span><span class="s1">s)&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>      <span class="n">preprocessed</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>         <span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">preprocessed</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>      <span class="p">]</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>      <span class="n">preprocessed</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">str_to_int</span>            
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                     <span class="k">else</span> <span class="s2">&quot;&lt;|unk|&gt;&quot;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">preprocessed</span><span class="p">]</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>      <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">str_to_int</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">preprocessed</span><span class="p">]</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>      <span class="k">return</span> <span class="n">ids</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>   <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>      <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">int_to_str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">])</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>      <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+([,.:;?!&quot;()</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">])</span><span class="s1">&#39;, r&#39;</span>\\<span class="mi">1</span><span class="s1">&#39;, text)    </span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>      <span class="k">return</span> <span class="n">text</span> 
+</span></code></pre></div>
 <h3 id="25-byte-pair-encoding-bpe">2.5 Byte Pair Encoding (BPE)</h3>
 <ul>
 <li>BPE is a method for splitting rare or unseen words into subwords, reducing the size of the vocabulary while improving generalization.</li>
@@ -2031,55 +2048,60 @@
 </ul>
 <h3 id="26-data-sampling-with-a-sliding-window">2.6 Data Sampling with a Sliding Window</h3>
 <ul>
-<li>A <strong>sliding window</strong> generates overlapping input-target sequences, enabling models to capture continuous context efficiently.</li>
+<li>A sliding window generates overlapping input-target sequences, enabling models to capture continuous context efficiently.</li>
 <li>Example:<ul>
 <li>Input Sequence: <code>['The', 'cat', 'sat']</code></li>
 <li>Target Sequence: <code>['cat', 'sat', 'on']</code></li>
 </ul>
 </li>
-<li>This approach ensures robust learning from limited datasets.</li>
+<li>
+<p>This approach ensures robust learning from limited datasets.</p>
+</li>
+<li>
+<p>Example Implementation </p>
+</li>
 </ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DataLoader</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">class</span> <span class="nc">GPTDatasetV1</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">max_length</span><span class="p">,</span> <span class="n">stride</span><span class="p">):</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      <span class="bp">self</span><span class="o">.</span><span class="n">input_ids</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>      <span class="bp">self</span><span class="o">.</span><span class="n">target_ids</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>      <span class="n">token_ids</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>    
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">token_ids</span><span class="p">)</span> <span class="o">-</span> <span class="n">max_length</span><span class="p">,</span> <span class="n">stride</span><span class="p">):</span>     
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>         <span class="n">input_chunk</span> <span class="o">=</span> <span class="n">token_ids</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">max_length</span><span class="p">]</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>         <span class="n">target_chunk</span> <span class="o">=</span> <span class="n">token_ids</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">max_length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>         <span class="bp">self</span><span class="o">.</span><span class="n">input_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">input_chunk</span><span class="p">))</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>         <span class="bp">self</span><span class="o">.</span><span class="n">target_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">target_chunk</span><span class="p">))</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>   <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>      <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_ids</span><span class="p">)</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>   <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>         
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_ids</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_ids</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+</span></code></pre></div>
 <h3 id="27-creating-token-embeddings">2.7 Creating Token Embeddings</h3>
 <ul>
-<li><strong>Token Embeddings</strong> map token IDs to high-dimensional dense vectors optimized during training.</li>
+<li>Token Embeddings map token IDs to high-dimensional dense vectors optimized during training.</li>
 <li>Each token has a unique vector representation that encodes semantic and syntactic information, essential for deep learning tasks.</li>
 </ul>
 <h3 id="28-encoding-word-positions">2.8 Encoding Word Positions</h3>
 <ul>
 <li>Positional encoding integrates sequential information into embeddings, enabling models to understand the order of tokens.</li>
+<li>We can use two broad categories of position- aware embeddings: relative positional embeddings and absolute positional embeddings.</li>
 <li>Methods like sinusoidal encodings are commonly used, ensuring unique positional information for each token.</li>
 </ul>
 <hr />
-<h2 id="practical-implementations">Practical Implementations</h2>
-<ol>
-<li><strong>Custom Tokenizer Implementation</strong></li>
-<li>Tokenizers preprocess raw text by splitting it into tokens and assigning unique IDs.</li>
-<li>
-<p>They manage special tokens for unknown words and document boundaries to enhance context understanding.</p>
-</li>
-<li>
-<p><strong>Sliding Window Data Generation</strong></p>
-</li>
-<li>A sliding window mechanism creates overlapping data samples for training, ensuring efficient utilization of text context.</li>
-<li>
-<p>This method provides overlapping input-output pairs, crucial for sequential learning tasks.</p>
-</li>
-<li>
-<p><strong>Embedding Layer Initialization</strong></p>
-</li>
-<li>Embedding layers are initialized with random weights and refined during model training.</li>
-<li>
-<p>These layers translate token IDs into dense vectors compatible with neural network processing.</p>
-</li>
-<li>
-<p><strong>Positional Encoding Implementation</strong></p>
-</li>
-<li>Positional encodings are computed and added to token embeddings to represent order-specific relationships.</li>
-<li>This allows the model to differentiate between permutations of the same tokens.</li>
-</ol>
-<hr />
 <h2 id="summary">Summary</h2>
 <p>Chapter 2 provides an in-depth exploration of preparing text data for training large language models. From tokenization and vocabulary creation to embedding generation and positional encoding, this chapter equips readers with the foundational tools for processing text data. By meticulously structuring text input, these methods enable LLMs to learn complex linguistic relationships, paving the way for effective training and generalization.</p>
+<hr />
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken">tiktoken</a></li>
+<li><a href="https://huggingface.co/learn/nlp-course/en/chapter6/5">Byte-Pair Encoding tokenization
+</a></li>
+</ul>
 
 
 
@@ -2115,7 +2137,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+          <a href="../CHapter%200/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2125,7 +2147,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Home
+                Introduction
               </div>
             </div>
           </a>

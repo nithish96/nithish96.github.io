@@ -315,6 +315,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../CHapter%200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Chapter%202/" class="md-nav__link">
         
   
@@ -388,16 +409,7 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Concepts
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Concepts">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -519,15 +531,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practical-implementations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Practical Implementations
-    </span>
-  </a>
   
 </li>
       
@@ -1888,16 +1891,7 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Concepts
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Concepts">
+    <nav class="md-nav" aria-label="Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2023,15 +2017,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#practical-implementations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Practical Implementations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
       Summary
@@ -2060,39 +2045,42 @@
 
 <h1 id="3-coding-attention-mechanisms">3. Coding Attention Mechanisms</h1>
 <h2 id="overview">Overview</h2>
-<p>Chapter 3 delves into one of the core concepts underpinning modern large language models (LLMs): <strong>attention mechanisms</strong>. It explores the evolution from earlier architectures to attention-based models and systematically implements several variants of attention mechanisms.</p>
+<p>Chapter 3 delves into one of the core concepts underpinning modern large language models (LLMs): attention mechanisms. It explores the evolution from earlier architectures to attention-based models and systematically implements several variants of attention mechanisms.</p>
 <p>This chapter covers:</p>
 <ol>
-<li>The limitations of pre-attention architectures like RNNs.</li>
-<li>Introduction to attention mechanisms and their rationale.</li>
-<li>Implementing self-attention with and without trainable weights.</li>
-<li>Adding causal masking to self-attention.</li>
-<li>Scaling to multi-head attention for parallelized contextual understanding.</li>
+<li>The reasons for using attention mechanisms in neural networks</li>
+<li>A basic self-attention framework, progressing to an enhanced self-attention mechanism</li>
+<li>A causal attention module that allows LLMs to generate one token at a time</li>
+<li>Masking randomly selected attention weights with dropout to reduce overfitting</li>
+<li>Stacking multiple causal attention modules into a multi- head attention module</li>
 </ol>
 <hr />
-<h2 id="key-concepts">Key Concepts</h2>
 <h3 id="31-the-problem-with-modeling-long-sequences">3.1 The Problem with Modeling Long Sequences</h3>
 <ul>
-<li>Traditional architectures like encoder-decoder RNNs face challenges:</li>
+<li>Traditional architectures like encoder-decoder RNNs face challenges:<ul>
 <li>They compress the entire input sequence into a single hidden state.</li>
+<li>The decoder then takes in this hidden state to produce the output</li>
 <li>Long-range dependencies are lost, leading to poor performance on lengthy sequences.</li>
-<li><strong>Attention mechanisms</strong> were developed to address this by allowing models to focus on specific parts of the input dynamically during processing.</li>
+</ul>
+</li>
+<li>Attention mechanisms were developed to address this by allowing models to focus on specific parts of the input dynamically during processing.</li>
 </ul>
 <h3 id="32-capturing-data-dependencies-with-attention">3.2 Capturing Data Dependencies with Attention</h3>
 <ul>
-<li>The first major improvement was the <strong>Bahdanau attention mechanism</strong> (2014), which enabled selective access to input tokens during decoding.</li>
-<li>This inspired the <strong>self-attention mechanism</strong> of the transformer architecture, enabling LLMs to weigh all input tokens when computing each token's representation.</li>
+<li>One major shortcoming in this approach is that the RNN must remember the entire encoded input in a single hidden state before passing it to the decoder. </li>
+<li>The first major improvement was the Bahdanau attention mechanism (2014), which enabled selective access to input tokens during decoding.</li>
+<li>This inspired the self-attention mechanism of the transformer architecture, enabling LLMs to weigh all input tokens when computing each token's representation.</li>
 </ul>
 <h3 id="33-attending-to-different-parts-of-the-input-with-self-attention">3.3 Attending to Different Parts of the Input with Self-Attention</h3>
 <h4 id="331-simplified-self-attention">3.3.1 Simplified Self-Attention</h4>
 <ul>
-<li>In its basic form, self-attention computes a <strong>context vector</strong> for each token in the input sequence, incorporating information from all tokens.</li>
-<li>The mechanism computes <strong>attention weights</strong> based on the relevance between tokens.</li>
+<li>In its basic form, self-attention computes a context vector for each token in the input sequence, incorporating information from all tokens.</li>
+<li>The mechanism computes attention weights based on the relevance between tokens.</li>
 </ul>
 <h4 id="example">Example:</h4>
 <ul>
 <li>Input: <code>x(1), x(2), ..., x(T)</code></li>
-<li>Attention weights for token <code>x(2)</code> determine the contribution of every other token to <code>x(2)</code>'s context vector <code>z(2)</code>.</li>
+<li>When computing the context vector <code>z(2)</code>,  attention weights are calculated with respect to input element <code>x(2)</code> and all other inputs. </li>
 </ul>
 <h4 id="implementation">Implementation:</h4>
 <ol>
@@ -2100,10 +2088,18 @@
 <li>Normalize scores using softmax to get attention weights.</li>
 <li>Compute context vectors as weighted sums of token embeddings.</li>
 </ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">attn_scores</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">x_j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n">attn_scores</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x_i</span><span class="p">,</span> <span class="n">x_j</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">attn_scores</span><span class="p">)</span>
+</span></code></pre></div>
 <h3 id="34-implementing-self-attention-with-trainable-weights">3.4 Implementing Self-Attention with Trainable Weights</h3>
 <ul>
-<li>Adds <strong>trainable weight matrices</strong>:</li>
+<li>Adds trainable weight matrices:<ul>
 <li>Queries (<code>Wq</code>), Keys (<code>Wk</code>), and Values (<code>Wv</code>).</li>
+</ul>
+</li>
 <li>The steps involve:</li>
 <li>Projecting token embeddings into query, key, and value spaces.</li>
 <li>Computing attention scores as dot products of queries and keys.</li>
@@ -2112,16 +2108,71 @@
 </ul>
 <h4 id="compact-implementation">Compact Implementation:</h4>
 <ul>
-<li>A Python class encapsulates the self-attention mechanism using PyTorch’s <code>nn.Linear</code> for efficient computation.</li>
+<li>nn.Linear has an optimized weight initialization scheme, contributing to more stable and effective model training.</li>
 </ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">class</span> <span class="nc">SelfAttention_v1</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_in</span><span class="p">,</span> <span class="n">d_out</span><span class="p">):</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">W_query</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_in</span><span class="p">,</span> <span class="n">d_out</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="n">qkv_bias</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">W_key</span>   <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_in</span><span class="p">,</span> <span class="n">d_out</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="n">qkv_bias</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">W_value</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_in</span><span class="p">,</span> <span class="n">d_out</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="n">qkv_bias</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="n">keys</span> <span class="o">=</span> <span class="n">x</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_key</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="n">queries</span> <span class="o">=</span> <span class="n">x</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_query</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="n">values</span> <span class="o">=</span> <span class="n">x</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_value</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="n">attn_scores</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">@</span> <span class="n">keys</span><span class="o">.</span><span class="n">T</span> 
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="n">attn_weights</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>            <span class="n">attn_scores</span> <span class="o">/</span> <span class="n">keys</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        <span class="p">)</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        <span class="n">context_vec</span> <span class="o">=</span> <span class="n">attn_weights</span> <span class="o">@</span> <span class="n">values</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        <span class="k">return</span> <span class="n">context_vec</span>
+</span></code></pre></div>
 <h3 id="35-hiding-future-words-with-causal-attention">3.5 Hiding Future Words with Causal Attention</h3>
 <ul>
 <li>For tasks like text generation, models must only attend to previous tokens to avoid peeking into the future.</li>
-<li><strong>Causal masking</strong> ensures that attention weights for future tokens are set to zero.</li>
+<li>Causal masking ensures that attention weights for future tokens are set to zero.</li>
 <li>This is achieved by:</li>
 <li>Applying an upper triangular mask to the attention score matrix.</li>
-<li>Normalizing non-masked scores.</li>
+<li>
+<p>Normalizing non-masked scores.</p>
+</li>
+<li>
+<p>Implementation</p>
+</li>
 </ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span> <span class="nc">CausalAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_in</span><span class="p">,</span> <span class="n">d_out</span><span class="p">,</span> <span class="n">context_length</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>                <span class="n">dropout</span><span class="p">,</span> <span class="n">qkv_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">d_out</span> <span class="o">=</span> <span class="n">d_out</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">W_query</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_in</span><span class="p">,</span> <span class="n">d_out</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="n">qkv_bias</span><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">W_key</span>   <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_in</span><span class="p">,</span> <span class="n">d_out</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="n">qkv_bias</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">W_value</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_in</span><span class="p">,</span> <span class="n">d_out</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="n">qkv_bias</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">dropout</span><span class="p">)</span>            
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>           <span class="s1">&#39;mask&#39;</span><span class="p">,</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>           <span class="n">torch</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">context_length</span><span class="p">,</span> <span class="n">context_length</span><span class="p">),</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>           <span class="n">diagonal</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="p">)</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="n">b</span><span class="p">,</span> <span class="n">num_tokens</span><span class="p">,</span> <span class="n">d_in</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        <span class="n">keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_key</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>        <span class="n">queries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_query</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>        <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_value</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        <span class="n">attn_scores</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">@</span> <span class="n">keys</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>        <span class="n">attn_scores</span><span class="o">.</span><span class="n">masked_fill_</span><span class="p">(</span>                                     
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>          <span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">bool</span><span class="p">()[:</span><span class="n">num_tokens</span><span class="p">,</span> <span class="p">:</span><span class="n">num_tokens</span><span class="p">],</span> <span class="o">-</span><span class="n">torch</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>          <span class="n">attn_weights</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>              <span class="n">attn_scores</span> <span class="o">/</span> <span class="n">keys</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>        <span class="p">)</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>        <span class="n">attn_weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">attn_weights</span><span class="p">)</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>        <span class="n">context_vec</span> <span class="o">=</span> <span class="n">attn_weights</span> <span class="o">@</span> <span class="n">values</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>        <span class="k">return</span> <span class="n">context_vec</span>
+</span></code></pre></div>
 <h3 id="36-extending-single-head-attention-to-multi-head-attention">3.6 Extending Single-Head Attention to Multi-Head Attention</h3>
 <ul>
 <li>Multi-head attention runs multiple attention mechanisms in parallel, allowing the model to capture diverse relationships.</li>
@@ -2130,36 +2181,26 @@
 </ul>
 <h4 id="implementation_1">Implementation:</h4>
 <ul>
-<li>A wrapper class stacks multiple attention heads and combines their outputs.</li>
+<li>
+<p>A wrapper class stacks multiple attention heads and combines their outputs.</p>
+</li>
+<li>
+<p>Implementation 
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span> <span class="nc">MultiHeadAttentionWrapper</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_in</span><span class="p">,</span> <span class="n">d_out</span><span class="p">,</span> <span class="n">context_length</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                 <span class="n">dropout</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">,</span> <span class="n">qkv_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">heads</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">(</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>            <span class="p">[</span><span class="n">CausalAttention</span><span class="p">(</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>                 <span class="n">d_in</span><span class="p">,</span> <span class="n">d_out</span><span class="p">,</span> <span class="n">context_length</span><span class="p">,</span> <span class="n">dropout</span><span class="p">,</span> <span class="n">qkv_bias</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>             <span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>             <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_heads</span><span class="p">)]</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        <span class="p">)</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">head</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">head</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">heads</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</span></code></pre></div></p>
+</li>
 </ul>
-<hr />
-<h2 id="practical-implementations">Practical Implementations</h2>
-<ol>
-<li><strong>Simplified Self-Attention</strong></li>
-<li>A step-by-step implementation introduces attention weights and context vector computation.</li>
-<li>
-<p>Useful for understanding the fundamentals.</p>
-</li>
-<li>
-<p><strong>Self-Attention with Trainable Weights</strong></p>
-</li>
-<li>Introduces <code>Wq</code>, <code>Wk</code>, and <code>Wv</code> for learnable transformations.</li>
-<li>
-<p>Encapsulated in a modular PyTorch class for reuse.</p>
-</li>
-<li>
-<p><strong>Causal Attention</strong></p>
-</li>
-<li>Implements masking to prevent future-token access.</li>
-<li>
-<p>Adds dropout for regularization.</p>
-</li>
-<li>
-<p><strong>Multi-Head Attention</strong></p>
-</li>
-<li>A scalable version of attention, enabling multiple perspectives on the data.</li>
-<li>Combines outputs from multiple attention heads.</li>
-</ol>
 <hr />
 <h2 id="summary">Summary</h2>
 <p>Chapter 3 provides a detailed exploration of attention mechanisms, starting with basic concepts and progressively adding complexity. By the end, readers will understand and implement:</p>
