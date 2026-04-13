@@ -1,0 +1,80 @@
+# Byte-compiled / optimized / DLL files
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+
+.env
+.venv
+env/
+venv/
+ENV/
+
+# MkDocs build output
+
+site/
+
+# MkDocs cache / temp
+
+.cache/
+.mypy_cache/
+.pytest_cache/
+
+# Python packaging
+
+build/
+dist/
+*.egg-info/
+
+# Logs
+
+*.log
+
+# OS-specific files
+
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders
+
+.vscode/
+.idea/
+
+# Jupyter Notebook checkpoints (if used)
+
+.ipynb_checkpoints/
+
+# Coverage reports
+
+htmlcov/
+.coverage
+.coverage.*
+
+# Temporary files
+
+*.swp
+*.swo
+*~
+
+# dotenv files (secrets)
+
+.env.*
+
+# Local overrides (optional)
+
+mkdocs.local.yml
+
+# Node (if using themes/plugins like Material with tooling)
+
+node_modules/
+package-lock.json
+yarn.lock
+
+# GitHub Pages (if using gh-pages branch, do NOT ignore site/ there)
+
+# site/ is ignored only for main branch workflows
+
+
+*.json 
