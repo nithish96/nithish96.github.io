@@ -1,0 +1,2596 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="My personal Notes">
+      
+      
+        <meta name="author" content="Nithish Duvvuru">
+      
+      
+        <link rel="canonical" href="https://nithish96.github.io/Books/Building%20Applications%20with%20AI%20agents/Chapter%208/">
+      
+      
+        <link rel="prev" href="../Chapter%207/">
+      
+      
+        <link rel="next" href="../../Hands-on%20LLM%20Serving%20an%20Optimization/Chapter%203/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+    
+    
+      
+        <title>Chapter 8. From One Agent to Many - Nithish Duvvuru</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-8-from-one-agent-to-many" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Nithish Duvvuru" class="md-header__button md-logo" aria-label="Nithish Duvvuru" data-md-component="logo">
+      
+  <img src="../../../img/logo.bmp" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nithish Duvvuru
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 8. From One Agent to Many
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nithish96/nithish96.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nithish96/nitish96.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Nithish Duvvuru" class="md-nav__button md-logo" aria-label="Nithish Duvvuru" data-md-component="logo">
+      
+  <img src="../../../img/logo.bmp" alt="logo">
+
+    </a>
+    Nithish Duvvuru
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nithish96/nithish96.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nithish96/nitish96.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    📚 Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Building Applications with AI agents
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Building Applications with AI agents
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter%200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter%204/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4: Tool Use
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter%205/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5: Orchestration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter%206/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6: Knowledge and Memory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter%207/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7. Learning in Agentic Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 8. From One Agent to Many
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8. From One Agent to Many
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-many-agents-do-i-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      How many agents do I need
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How many agents do I need">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-agent-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single-Agent System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiagent-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiagent Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principles-for-adding-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principles for Adding Agents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiagent-coordination-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiagent Coordination Strategies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actorcritic-agent-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actor–Critic Agent Patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communication Techniques
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-versus-distributed-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Versus Distributed Communication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-to-agent-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent-to-Agent Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-architecture_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Architecture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-brokers-and-event-buses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Brokers and Event Buses
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Brokers and Event Buses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-architecture_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Architecture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orchestration-and-workflow-engines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orchestration and Workflow Engines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-state-and-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing State and Persistence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing State and Persistence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#durable-storage-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Durable Storage Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stateful-framework-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stateful Framework Persistence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hands on LLM Serving an Optimization
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Hands on LLM Serving an Optimization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hands-on%20LLM%20Serving%20an%20Optimization/Chapter%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03. Model-Serving System Design: A Deep Dive
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LLM From Scratch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            LLM From Scratch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Working with Text Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Coding Attention Mechanisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%204/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Implementing a GPT Model from Scratch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%205/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pretraining on Unlabeled Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%206/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Fine-tuning for Classification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%207/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Fine-Tuning to Follow Instructions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Understanding Deep Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Understanding Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Understanding%20Deep%20Learning/00.%20Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    00. Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Understanding%20Deep%20Learning/05.%20Loss%20Functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05. Loss Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Understanding%20Deep%20Learning/12.%20Transformers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Transformers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Computer Vision
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Vision
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/Concepts/Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/Concepts/CTC%20Decoding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CTC Decoding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Text Detection
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Text Detection
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/Text%20Detection/craft/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CRAFT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/Text%20Detection/dbnet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DBNet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Text Recognition
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Text Recognition
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/Text%20Recognition/vitstr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ViTSTR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transformers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Transformers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/transformers/Data-efficient%20Image%20Transformer%20%28DeiT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data efficient Image Transformer (DeiT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/transformers/detr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Detection Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/transformers/swin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Swin Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/transformers/vit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Languages
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Languages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Languages/python/Multiprocessing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiprocessing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Languages/python/async/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Languages/python/pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Languages/python/threading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Threading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MLOps
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            MLOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MLOps/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MLOps/kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    NLP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            NLP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NLP/Courses/stanford/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Standford
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LLM
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            LLM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_1" id="__nav_6_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LLAMA
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            LLAMA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NLP/LLM/LLAMA/3.pretraining/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. PreTraining
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NLP/LLM/LLAMA/4.posttraining/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Post Training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NLP/LLM/LLAMA/6.Inference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Inference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NLP/LLM/LLAMA/7.vision/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Vision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NLP/LLM/LLAMA/8.speech/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Speech
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-many-agents-do-i-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      How many agents do I need
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How many agents do I need">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-agent-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single-Agent System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiagent-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiagent Systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principles-for-adding-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principles for Adding Agents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiagent-coordination-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiagent Coordination Strategies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actorcritic-agent-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actor–Critic Agent Patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communication Techniques
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-versus-distributed-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Versus Distributed Communication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-to-agent-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent-to-Agent Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-architecture_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Architecture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-brokers-and-event-buses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Brokers and Event Buses
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Brokers and Event Buses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-architecture_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Architecture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orchestration-and-workflow-engines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orchestration and Workflow Engines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-state-and-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing State and Persistence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing State and Persistence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#durable-storage-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Durable Storage Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stateful-framework-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stateful Framework Persistence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chapter-8-from-one-agent-to-many">Chapter 8. From One Agent to Many<a class="headerlink" href="#chapter-8-from-one-agent-to-many" title="Permanent link">&para;</a></h1>
+<p>Most agentic systems start with a single agent, but increasing tools and problem complexity often require a multiagent architecture. Dividing responsibilities across specialized agents improves performance, reliability, and maintainability. This approach mirrors traditional software engineering practices where large systems evolve from monoliths into modular services. Breaking functionality into smaller agents allows independent development, testing, and reuse of components. As systems grow, effective organization and coordination of multiple agents becomes essential.</p>
+<hr />
+<h2 id="how-many-agents-do-i-need">How many agents do I need<a class="headerlink" href="#how-many-agents-do-i-need" title="Permanent link">&para;</a></h2>
+<h3 id="single-agent-system">Single-Agent System<a class="headerlink" href="#single-agent-system" title="Permanent link">&para;</a></h3>
+<p>Single-agent systems are ideal for tasks with limited complexity, small toolsets, and environments that require minimal coordination. They are often preferred when low latency is important, since multiagent systems introduce additional communication overhead. </p>
+<p>In this architecture, a single agent manages the workflow, deciding when to invoke tools and when to respond to the user. Teams typically begin with a single-agent design and only transition to multiagent systems when task complexity or coordination requirements grow beyond what one agent can effectively handle.</p>
+<p>Refer to <a href="https://github.com/michaelalbada/BuildingApplicationsWithAIAgents/blob/main/src/frameworks/langgraph_agents/supply_chain/supply_chain_logistics_agent.py">this code</a> for implementation. </p>
+<h4 id="example-architecture">Example Architecture<a class="headerlink" href="#example-architecture" title="Permanent link">&para;</a></h4>
+<pre  class="mermaid"><code>
+flowchart LR
+    A[User Request] --> B[Agent]
+    B --> C{Tool?}
+
+    C -- No --> F[Generate Response]
+    C -- Yes --> D[Invoke Tool]
+
+    D -- Response --> C
+
+    F --> G[Return Answer]
+
+</code></pre>
+<h4 id="limitations-of-single-agent-systems">Limitations of Single-Agent Systems<a class="headerlink" href="#limitations-of-single-agent-systems" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Scalability limits: Single-agent systems struggle as the number of tools grows, making tool selection and prompt management increasingly difficult.</p>
+</li>
+<li>
+<p>Performance issues: Large prompts and expanded decision spaces can lead to tool-selection errors and reduced reasoning efficiency.</p>
+</li>
+<li>
+<p>Transition to multiagent systems: When tasks span multiple domains or require specialized reasoning, decomposing the system into multiple agents becomes more effective.</p>
+</li>
+</ul>
+<hr />
+<h3 id="multiagent-systems">Multiagent Systems<a class="headerlink" href="#multiagent-systems" title="Permanent link">&para;</a></h3>
+<p>Multiagent systems use multiple specialized agents to collaborate on complex tasks that require diverse tools, parallel processing, or domain expertise. By distributing responsibilities across agents, the system improves efficiency and overcomes the scalability limitations of single-agent architectures.</p>
+<p>Refer to <a href="https://github.com/michaelalbada/BuildingApplicationsWithAIAgents/blob/main/src/frameworks/langgraph_agents/supply_chain/supply_chain_logistics_multi_agent.py">this code</a> for implementation. </p>
+<h4 id="example-architecture_1">Example Architecture<a class="headerlink" href="#example-architecture_1" title="Permanent link">&para;</a></h4>
+<pre  class="mermaid"><code>flowchart LR
+    A[User Request] --> B[Coordinator Agent]
+
+    B --> C[Agent 1]
+    B --> D[Agent 2]
+    B --> E[Agent 3]
+
+    C -- Result --> F[Coordinator Aggregates Results]
+    D -- Result --> F
+    E -- Result --> F
+
+    F --> G[Return Final Answer]
+</code></pre>
+<h4 id="benefits-of-multiagent-systems">Benefits of Multiagent Systems<a class="headerlink" href="#benefits-of-multiagent-systems" title="Permanent link">&para;</a></h4>
+<p>Adaptability and dynamic routing: Multiagent systems can dynamically route tasks to specialized agents based on changing conditions, enabling parallel work, better resource allocation, and improved resilience.</p>
+<p>Efficiency in complex environments: By coordinating specialized agents, the system can adapt to real-time data and handle complex, unpredictable scenarios more effectively than single-agent approaches.</p>
+<h4 id="challenges-of-multiagent-systems">Challenges of Multiagent Systems<a class="headerlink" href="#challenges-of-multiagent-systems" title="Permanent link">&para;</a></h4>
+<p>Added complexity and coordination needs: Multiagent systems introduce challenges such as communication overhead, coordination complexity, and potential conflicts between agents, requiring careful design and management.</p>
+<hr />
+<h2 id="principles-for-adding-agents">Principles for Adding Agents<a class="headerlink" href="#principles-for-adding-agents" title="Permanent link">&para;</a></h2>
+<p>When expanding an agentic system beyond a single-agent architecture, developers should follow several guiding principles that ensure the resulting system remains efficient and manageable.</p>
+<ul>
+<li>
+<p>Task decomposition: Break complex problems into smaller subtasks so individual agents can focus on specific responsibilities, improving efficiency and reducing overlap.</p>
+</li>
+<li>
+<p>Specialization: Assign agents roles aligned with their strengths or domain expertise so the system performs tasks more accurately and effectively.</p>
+</li>
+<li>
+<p>Parsimony: Add only the minimum number of agents necessary to achieve the desired functionality to avoid unnecessary complexity and communication overhead.</p>
+</li>
+<li>
+<p>Coordination: Establish clear communication and synchronization mechanisms so agents can share information, resolve conflicts, and work together effectively.</p>
+</li>
+<li>
+<p>Robustness: Design the system with redundancy and fault tolerance so other agents can continue operations if one agent fails.</p>
+</li>
+<li>
+<p>Efficiency: Evaluate the trade-offs between adding more agents and the additional computational and coordination costs they introduce.</p>
+</li>
+</ul>
+<hr />
+<h2 id="multiagent-coordination-strategies">Multiagent Coordination Strategies<a class="headerlink" href="#multiagent-coordination-strategies" title="Permanent link">&para;</a></h2>
+<p>Different multiagent systems adopt different coordination strategies depending on the nature of the tasks they perform.</p>
+<ul>
+<li>
+<p>Democratic coordination: All agents participate equally in decision-making and negotiate solutions collectively, which improves fairness but increases communication overhead and decision time.</p>
+</li>
+<li>
+<p>Manager-based coordination: A central manager agent assigns tasks and resolves conflicts among agents, simplifying control but potentially creating a bottleneck.</p>
+</li>
+<li>
+<p>Hierarchical coordination: Agents are organized in multiple levels where higher-level agents make strategic decisions and lower-level agents execute tasks, balancing centralized and decentralized coordination.</p>
+</li>
+</ul>
+<hr />
+<h2 id="actorcritic-agent-patterns">Actor–Critic Agent Patterns<a class="headerlink" href="#actorcritic-agent-patterns" title="Permanent link">&para;</a></h2>
+<p>One agent (actor) generates candidate outputs while another (critic) evaluates them against a quality rubric and approves or rejects them. The actor continues producing new candidates until the critic determines the output meets the required quality threshold. This approach improves reliability and output quality through repeated evaluation but increases computational cost due to additional inference cycles.</p>
+<h4 id="example-architecture_2">Example Architecture<a class="headerlink" href="#example-architecture_2" title="Permanent link">&para;</a></h4>
+<pre  class="mermaid"><code>flowchart LR
+    A[User Request] --> B[Actor Agent]
+
+    B --> C[Generate Candidate Output]
+    C --> D[Critic Agent]
+
+    D --> E{Acceptable?}
+
+    E -- No --> B
+    E -- Yes --> F[Return Final Output]
+</code></pre>
+<hr />
+<h2 id="communication-techniques">Communication Techniques<a class="headerlink" href="#communication-techniques" title="Permanent link">&para;</a></h2>
+<p>As agent systems evolve from single-agent prototypes to distributed multiagent architectures, communication design becomes critical. Simple approaches like function calls or in-memory message passing work for small setups but break down as systems grow in size, number of agents, or deployment complexity. Scalable systems require communication methods that support coordination, reliability, and distributed execution. Different communication architectures provide trade-offs in latency, scalability, development effort, and operational cost.</p>
+<h3 id="local-versus-distributed-communication">Local Versus Distributed Communication<a class="headerlink" href="#local-versus-distributed-communication" title="Permanent link">&para;</a></h3>
+<p>In small-scale deployments, agents typically communicate using direct function calls, shared memory, or in-memory message queues. These methods are fast and easy to implement but tightly couple components and limit scalability. When agents are deployed across services, containers, or machines, communication must become explicit, asynchronous, and fault-tolerant.</p>
+<p>Frameworks such as AutoGen often use in-memory routing to coordinate agent interactions during development. This works well for experimentation and small prototypes. However, production systems require more robust communication infrastructure to handle distributed execution and state management.</p>
+<h3 id="agent-to-agent-protocol">Agent-to-Agent Protocol<a class="headerlink" href="#agent-to-agent-protocol" title="Permanent link">&para;</a></h3>
+<p>The Agent-to-Agent (A2A) protocol lets AI agents communicate and collaborate across platforms without revealing internal details. Each agent publishes an Agent Card, a JSON file describing its identity, capabilities, inputs/outputs, endpoint, and authentication methods. Other agents can read this card to discover peers and determine if they can collaborate.</p>
+<p>Communication starts with discovery via a registry or well-known endpoint, followed by a handshake to check compatibility. Once confirmed, agents exchange JSON-RPC requests and responses to perform tasks, such as summarizing text, in a structured and interoperable way.</p>
+<p>A2A enables a modular ecosystem where agents act like specialized services, dynamically cooperating to solve complex problems. While still evolving, it provides a foundation for scalable, multi-agent systems.</p>
+<h3 id="example-architecture_3">Example Architecture<a class="headerlink" href="#example-architecture_3" title="Permanent link">&para;</a></h3>
+<pre  class="mermaid"><code>sequenceDiagram
+    participant Client as Client Agent
+    participant Registry as Agent Registry
+    participant Agent as Target Agent
+    participant Tools as LLM / Tools
+
+    Client->>Registry: Discover agents
+    Registry-->>Client: Return Agent Card
+
+    Client->>Agent: Handshake & verify capabilities
+    Agent-->>Client: Compatibility confirmed
+
+    Client->>Agent: JSON-RPC Request (task)
+    Agent->>Tools: Execute task
+    Tools-->>Agent: Task result
+    Agent-->>Client: JSON-RPC Response
+</code></pre>
+<hr />
+<h2 id="message-brokers-and-event-buses">Message Brokers and Event Buses<a class="headerlink" href="#message-brokers-and-event-buses" title="Permanent link">&para;</a></h2>
+<p>As multiagent systems grow, direct point-to-point communication between agents becomes difficult to manage. Each new connection increases coupling between components, making systems fragile and harder to scale. Message brokers and event buses address this problem by introducing a shared communication layer where agents publish and consume messages asynchronously.</p>
+<p>In this architecture, agents do not communicate directly with one another. Instead, they publish events to a broker, and other agents subscribe to topics relevant to their responsibilities. This design decouples producers from consumers, allowing agents to scale independently and enabling new components to be added without modifying existing communication paths.</p>
+<p>Several messaging platforms are commonly used in distributed agent systems:</p>
+<ul>
+<li>
+<p>Apache Kafka: A distributed event-streaming platform designed for high-throughput messaging with durable logs, parallel processing through partitions, and coordinated consumption using consumer groups.</p>
+</li>
+<li>
+<p>Redis Streams and RabbitMQ: Lightweight messaging systems that provide fast queues and reliable routing, making them suitable for simpler or moderate-scale distributed applications.</p>
+</li>
+<li>
+<p>NATS: A cloud-native messaging system focused on low-latency communication, supporting publish–subscribe and request–reply patterns with optional durable streams via JetStream.</p>
+</li>
+</ul>
+<h3 id="advantages">Advantages<a class="headerlink" href="#advantages" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Loose coupling between agents - enabling independent deployment and scaling.  </li>
+<li>Asynchronous processing -  allowing agents to handle tasks without blocking one another.  </li>
+<li>Durable logging and replay - enabling recovery from failures or missed events.  </li>
+<li>Observability -  since all interactions pass through the messaging infrastructure.</li>
+</ul>
+<p>However, they also introduce architectural complexity. Developers must manage message formats, ensure idempotent processing, and handle eventual consistency between distributed components. Debugging workflows can also become more challenging because interactions occur indirectly through event streams rather than direct function calls.</p>
+<p>Despite these challenges, event-driven architectures are widely adopted for large-scale agent systems because they provide a flexible communication fabric capable of supporting thousands of agents interacting concurrently.</p>
+<p>Refer to <a href="https://github.com/michaelalbada/BuildingApplicationsWithAIAgents/blob/main/src/frameworks/langgraph_agents/supply_chain/redis_streams_multi_agent_supply_chain.py">this code</a> for more details. </p>
+<hr />
+<h3 id="example-architecture_4">Example Architecture<a class="headerlink" href="#example-architecture_4" title="Permanent link">&para;</a></h3>
+<pre  class="mermaid"><code>flowchart LR
+    A[User Request] --> B[Coordinator Agent]
+
+    B -->|Publish Task| C[Event Broker]
+
+    C --> D[Agent 1]
+    C --> E[Agent 2]
+    C --> F[Agent 3]
+
+    D -->|Publish Result| G[Response Topic]
+    E -->|Publish Result| G
+    F -->|Publish Result| G
+
+    G --> B
+    B --> H[Return Final Answer]
+</code></pre>
+<h2 id="orchestration-and-workflow-engines">Orchestration and Workflow Engines<a class="headerlink" href="#orchestration-and-workflow-engines" title="Permanent link">&para;</a></h2>
+<p>Workflow orchestration engines manage the sequencing, dependencies, retries, and failure handling of tasks across agents in complex systems. They provide a higher-level coordination layer that ensures long-running or multistep workflows remain reliable by persisting state and automatically recovering from failures.</p>
+<p>These tools are particularly valuable in production environments where processes involve external dependencies, asynchronous operations, or extended execution times. By maintaining durable state and preventing redundant work after failures, orchestration engines enable agent systems to scale from simple prototypes to resilient, real-world deployments.</p>
+<ul>
+<li>
+<p>Temporal provides durable, stateful workflows with built-in retries and failure recovery, making it suitable for coordinating long-running multiagent tasks. </p>
+</li>
+<li>
+<p>Apache Airflow orchestrates workflows using DAGs and is commonly used for scheduled or batch pipelines in data engineering environments. </p>
+</li>
+<li>
+<p>Dagger enables workflows to be defined as code using containers and automated caching, supporting consistent execution across development, CI/CD pipelines, and production systems.</p>
+</li>
+</ul>
+<hr />
+<h2 id="managing-state-and-persistence">Managing State and Persistence<a class="headerlink" href="#managing-state-and-persistence" title="Permanent link">&para;</a></h2>
+<p>Communication infrastructure alone is not sufficient for multiagent systems. Agents must also manage shared state, persistent memory, and task metadata across multiple executions. Designing reliable persistence strategies is therefore a critical architectural concern.</p>
+<p>Several storage approaches are commonly used in agent systems:</p>
+<h3 id="durable-storage-options">Durable Storage Options<a class="headerlink" href="#durable-storage-options" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Pros</th>
+<th>Cons</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational databases (e.g., PostgreSQL, Redis)</td>
+<td>Flexible, queryable, cost-effective</td>
+<td>Manual management, potential inconsistency</td>
+<td>Custom, high-query systems</td>
+</tr>
+<tr>
+<td>Vector stores (e.g., Pinecone)</td>
+<td>Semantic search, scalable embeddings</td>
+<td>Higher cost, specialized setup</td>
+<td>Knowledge-intensive agents</td>
+</tr>
+<tr>
+<td>Object storage (e.g., S3)</td>
+<td>Cheap, durable for large data</td>
+<td>Slow access, no native indexing</td>
+<td>Archival outputs</td>
+</tr>
+<tr>
+<td>Stateful orchestration frameworks</td>
+<td>Automated recovery, low boilerplate</td>
+<td>Framework lock-in</td>
+<td>Resilient, long-running workflows</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stateful-framework-persistence">Stateful Framework Persistence<a class="headerlink" href="#stateful-framework-persistence" title="Permanent link">&para;</a></h3>
+<p>Some frameworks integrate persistence directly into their execution model. Workflow engines and virtual actor systems automatically checkpoint state and recover execution progress after failures. This reduces developer effort but may introduce framework lock-in.</p>
+<p>Different types of memory benefit from different storage strategies:</p>
+<ul>
+<li><strong>Episodic memory</strong> refers to short-lived task context that may only need temporary storage.  </li>
+<li><strong>Semantic memory</strong> represents long-term knowledge and typically requires persistent, searchable storage.  </li>
+<li><strong>Workflow durability</strong> involves preserving system progress during long-running operations and is best handled by workflow engines or actor-based frameworks.</li>
+</ul>
+<p>Selecting a persistence strategy involves balancing flexibility, performance, operational complexity, and durability requirements.</p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Multiagent systems improve the ability to solve complex tasks by enabling task decomposition, parallel execution, and adaptability. However, increasing the number of agents introduces coordination and scalability challenges. Developers must carefully decide how tasks are divided and how agents collaborate. Coordination strategies such as democratic, manager-based, hierarchical, actor–critic, and automated design provide different trade-offs in efficiency and robustness.</p>
+<p>Communication infrastructure is essential for scaling multiagent systems. Simple prototypes may use single-container deployments with in-memory communication. Production systems often rely on message brokers, actor frameworks, or workflow engines for reliable messaging and execution. These tools enable scalable communication, state management, and failure recovery in distributed environments.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Chapter%207/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chapter 7. Learning in Agentic Systems">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Chapter 7. Learning in Agentic Systems
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../Hands-on%20LLM%20Serving%20an%20Optimization/Chapter%203/" class="md-footer__link md-footer__link--next" aria-label="Next: 03. Model-Serving System Design: A Deep Dive">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                03. Model-Serving System Design: A Deep Dive
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "navigation.instant", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

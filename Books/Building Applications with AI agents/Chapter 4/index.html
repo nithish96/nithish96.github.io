@@ -1,0 +1,2409 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="My personal Notes">
+      
+      
+        <meta name="author" content="Nithish Duvvuru">
+      
+      
+        <link rel="canonical" href="https://nithish96.github.io/Books/Building%20Applications%20with%20AI%20agents/Chapter%204/">
+      
+      
+        <link rel="prev" href="../Chapter%200/">
+      
+      
+        <link rel="next" href="../Chapter%205/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+    
+    
+      
+        <title>Chapter 4: Tool Use - Nithish Duvvuru</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-4-tool-use" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Nithish Duvvuru" class="md-header__button md-logo" aria-label="Nithish Duvvuru" data-md-component="logo">
+      
+  <img src="../../../img/logo.bmp" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nithish Duvvuru
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 4: Tool Use
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nithish96/nithish96.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nithish96/nitish96.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Nithish Duvvuru" class="md-nav__button md-logo" aria-label="Nithish Duvvuru" data-md-component="logo">
+      
+  <img src="../../../img/logo.bmp" alt="logo">
+
+    </a>
+    Nithish Duvvuru
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nithish96/nithish96.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nithish96/nitish96.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    📚 Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Building Applications with AI agents
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Building Applications with AI agents
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter%200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 4: Tool Use
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4: Tool Use
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#langchain-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      LangChain Fundamentals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LangChain Fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-based-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      API-Based Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plug-in-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plug-In Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-tool-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Tool Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-model-context-protocol-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Model Context Protocol (MCP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-stateful-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Stateful Tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-tool-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Tool Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated Tool Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foundation-models-as-tool-makers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foundation Models as Tool Makers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-code-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-Time Code Generation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-use-configuration-and-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tool Use Configuration and Reliability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Use Configuration and Reliability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-production-grade-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Production-Grade Reliability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter%205/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5: Orchestration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter%206/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6: Knowledge and Memory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter%207/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7. Learning in Agentic Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter%208/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8. From One Agent to Many
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hands on LLM Serving an Optimization
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Hands on LLM Serving an Optimization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hands-on%20LLM%20Serving%20an%20Optimization/Chapter%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03. Model-Serving System Design: A Deep Dive
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LLM From Scratch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            LLM From Scratch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Working with Text Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%203/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Coding Attention Mechanisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%204/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Implementing a GPT Model from Scratch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%205/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pretraining on Unlabeled Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%206/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Fine-tuning for Classification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM%20From%20Scratch/Chapter%207/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Fine-Tuning to Follow Instructions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Understanding Deep Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Understanding Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Understanding%20Deep%20Learning/00.%20Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    00. Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Understanding%20Deep%20Learning/05.%20Loss%20Functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05. Loss Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Understanding%20Deep%20Learning/12.%20Transformers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Transformers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Computer Vision
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Vision
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/Concepts/Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Attention
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/Concepts/CTC%20Decoding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CTC Decoding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Text Detection
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Text Detection
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/Text%20Detection/craft/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CRAFT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/Text%20Detection/dbnet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DBNet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Text Recognition
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Text Recognition
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/Text%20Recognition/vitstr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ViTSTR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transformers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Transformers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/transformers/Data-efficient%20Image%20Transformer%20%28DeiT%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data efficient Image Transformer (DeiT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/transformers/detr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Detection Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/transformers/swin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Swin Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Computer%20Vision/transformers/vit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vision Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Languages
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Languages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Languages/python/Multiprocessing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiprocessing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Languages/python/async/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Asynchronous Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Languages/python/pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Languages/python/threading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Threading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MLOps
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            MLOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MLOps/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MLOps/kubernetes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    NLP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            NLP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NLP/Courses/stanford/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Standford
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LLM
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            LLM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_1" id="__nav_6_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LLAMA
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            LLAMA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NLP/LLM/LLAMA/3.pretraining/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. PreTraining
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NLP/LLM/LLAMA/4.posttraining/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Post Training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NLP/LLM/LLAMA/6.Inference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Inference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NLP/LLM/LLAMA/7.vision/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Vision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../NLP/LLM/LLAMA/8.speech/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Speech
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#langchain-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      LangChain Fundamentals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LangChain Fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-based-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      API-Based Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plug-in-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plug-In Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-tool-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Tool Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-model-context-protocol-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Model Context Protocol (MCP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-stateful-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Stateful Tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-tool-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Tool Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated Tool Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foundation-models-as-tool-makers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foundation Models as Tool Makers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-code-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-Time Code Generation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-use-configuration-and-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tool Use Configuration and Reliability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tool Use Configuration and Reliability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-production-grade-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Production-Grade Reliability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chapter-4-tool-use">Chapter 4: Tool Use<a class="headerlink" href="#chapter-4-tool-use" title="Permanent link">&para;</a></h1>
+<p>While foundation models are great at chatting for hours, tools are the building blocks that empower AI agents to retrieve information, perform tasks, and interact with the environment. In the AI world, a tool is a specific capability—ranging from simple calculations to complex, multistep operations—that allows an agent to execute actual changes rather than just providing text.</p>
+<p>Much like a doctor requires a diverse set of medical instruments to diagnose and treat patients, an AI agent requires a repertoire of tools to handle various tasks effectively.</p>
+<hr />
+<h2 id="langchain-fundamentals">LangChain Fundamentals<a class="headerlink" href="#langchain-fundamentals" title="Permanent link">&para;</a></h2>
+<p>Before exploring tool types, it is essential to understand the core concepts of LangChain, a popular framework for building these systems.</p>
+<p>Core Concepts</p>
+<ul>
+<li>Chat Models: These are the engines (like GPT-4o) that process prompts. LangChain uses wrappers like <code>ChatOpenAI</code> to interact with them.</li>
+<li>Messages: Interactions are structured as <code>HumanMessage</code> (user input) and <code>AIMessage</code> (model responses) to maintain context.</li>
+<li>The <code>@tool</code> Decorator: This is used to define external functions. It registers the function and automatically generates a schema (description of inputs and outputs) so the model knows how to use it.</li>
+</ul>
+<p>Tool Invocation Workflow</p>
+<ol>
+<li>
+<p><strong>User Input</strong>  - "What is the weather in NYC?"</p>
+</li>
+<li>
+<p><strong>Model Decision</strong>  - The LLM sees a <code>get_weather</code> tool is available. Instead of answering, it returns a Tool Call ID and arguments:  <code>{"location": "NYC"}</code>.</p>
+</li>
+<li>
+<p><strong>Local Execution</strong>  - Your code detects the request, runs the actual API call, and receives the result: <strong>22°C</strong>.</p>
+</li>
+<li>
+<p><strong>Feedback Loop</strong>  - Your code sends the <strong>22°C</strong> result back to the LLM.</p>
+</li>
+<li>
+<p><strong>Final Answer</strong>  - The LLM reads the result and responds to the user: "It is currently <strong>22°C in New York</strong>."</p>
+</li>
+</ol>
+<hr />
+<h3 id="local-tools">Local Tools<a class="headerlink" href="#local-tools" title="Permanent link">&para;</a></h3>
+<p>Local tools are designed to run on the same machine as the agent. They are based on predefined logic and are ideal for tasks where traditional programming is more reliable than a language model.</p>
+<h4 id="strengths-and-use-cases">Strengths and Use Cases<a class="headerlink" href="#strengths-and-use-cases" title="Permanent link">&para;</a></h4>
+<p>Local tools provide precision and predictability. They are best suited for:</p>
+<ul>
+<li>Arithmetic and complex mathematics.</li>
+<li>Time-zone and unit conversions.</li>
+<li>Calendar operations and map interactions.</li>
+</ul>
+<h4 id="the-importance-of-metadata">The Importance of Metadata<a class="headerlink" href="#the-importance-of-metadata" title="Permanent link">&para;</a></h4>
+<p>Because the model relies on documentation to choose a tool, developers must:</p>
+<ul>
+<li>Use precise names: Narrowly scoped names prevent the LLM from calling the tool unnecessarily.</li>
+<li>Write clear descriptions: Overlapping descriptions cause model confusion.</li>
+<li>Define strict schemas: This helps the model understand exactly how to format the input.</li>
+</ul>
+<h4 id="drawbacks">Drawbacks<a class="headerlink" href="#drawbacks" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Scalability: They can be cumbersome to deploy across multiple different agents.</li>
+<li>Duplication: Teams often end up reimplementing the same tools independently.</li>
+<li>Maintenance: Any update to the tool logic requires a full redeployment of the agent service.</li>
+</ul>
+<hr />
+<h3 id="api-based-tools">API-Based Tools<a class="headerlink" href="#api-based-tools" title="Permanent link">&para;</a></h3>
+<p>API-based tools enable agents to interact with external services. This allows them to access information and perform computations that are impossible to do locally.</p>
+<h4 id="benefits-of-apis">Benefits of APIs<a class="headerlink" href="#benefits-of-apis" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Expanded Functionality: Agents can use weather APIs, financial data streams, or translation services without needing to be retrained.</li>
+<li>Real-Time Data: APIs provide the most current information, which is critical for fields like stock trading or emergency response.</li>
+<li>Web Browsing: Tools can be created to search the open web (e.g., via Wikipedia) to ground the agent's answers in factual, up-to-date content.</li>
+</ul>
+<h4 id="design-considerations">Design Considerations<a class="headerlink" href="#design-considerations" title="Permanent link">&para;</a></h4>
+<p>When building API tools, focus on reliability and security. External services can fail, so agents need robust error handling and fallbacks. All communications should be secured with HTTPS, and developers must be mindful of API rate limits and data privacy laws.</p>
+<hr />
+<h3 id="plug-in-tools">Plug-In Tools<a class="headerlink" href="#plug-in-tools" title="Permanent link">&para;</a></h3>
+<p>Plug-in tools are modular components that can be integrated with minimal customization. They allow for rapid deployment by leveraging existing libraries and third-party services.</p>
+<h4 id="platform-ecosystems">Platform Ecosystems<a class="headerlink" href="#platform-ecosystems" title="Permanent link">&para;</a></h4>
+<p>Most leading AI providers offer their own versions of plug-ins:</p>
+<ul>
+<li>OpenAI: Offers a vast ecosystem (Expedia, Zapier), but these are currently limited to the ChatGPT product rather than the public API.</li>
+<li>Anthropic (Claude): Exposes "tool use" directly through its Messages API, allowing for seamless integration of moderation or domain-specific services.</li>
+<li>Google (Gemini): Supports function calling via Vertex AI, letting developers declare tools in a structured configuration.</li>
+<li>Microsoft (Phi): Integrates tightly with Azure services like cognitive search and data processing.</li>
+</ul>
+<h4 id="open-source-and-the-future">Open Source and the Future<a class="headerlink" href="#open-source-and-the-future" title="Permanent link">&para;</a></h4>
+<p>There is a massive growing ecosystem for open-source models. Platforms like Hugging Face provide pretrained tools, while aggregators like Glama.ai and mcp.so make "Model Context Protocol" (MCP) servers searchable.</p>
+<p>While plug-in tools are easy to integrate, they are often general-purpose and lack the deep customization of bespoke local tools. However, as these catalogs grow, the gap between "ease of use" and "specialized capability" continues to shrink, making AI agents more versatile across industries like healthcare, finance, and education.</p>
+<hr />
+<h3 id="summary-of-tool-types">Summary of Tool Types<a class="headerlink" href="#summary-of-tool-types" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool Type</th>
+<th>Best For</th>
+<th>Setup Difficulty</th>
+<th>Scalability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local</td>
+<td>Math, String parsing</td>
+<td>Low</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>API-Based</td>
+<td>Real-time data (Weather, Stocks)</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Plug-in</td>
+<td>Third-party apps (Zapier)</td>
+<td>Easy</td>
+<td>High</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>Enterprise data / Universal use</td>
+<td>Medium</td>
+<td>Maximum</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-model-context-protocol-mcp">The Model Context Protocol (MCP)<a class="headerlink" href="#the-model-context-protocol-mcp" title="Permanent link">&para;</a></h3>
+<p>Custom integrations are brittle and scale poorly. To solve this, Anthropic (with support from OpenAI, Google, and Microsoft) introduced the Model Context Protocol (MCP). Think of MCP as the "USB-C port for AI"—a single, universal interface that allows any agent to connect to any data source without bespoke "glue code."</p>
+<h4 id="the-two-pillars-of-mcp">The Two Pillars of MCP<a class="headerlink" href="#the-two-pillars-of-mcp" title="Permanent link">&para;</a></h4>
+<ol>
+<li>MCP Server: A web server that exposes data (SQL databases, CRMs, etc.) via a standardized JSON-RPC 2.0 interface. It advertises a "method catalog" that tells the agent what it can do.</li>
+<li>MCP Client: The AI agent or application that "speaks" MCP. It fetches the method catalog, decides which tool to call, and sends structured requests.</li>
+</ol>
+<h4 id="why-it-matters">Why It Matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h4>
+<p>Before MCP, developers had to write unique adapters for every single system. With MCP, you implement the server once, and any MCP-capable agent can immediately discover and use those tools. Standard APIs require you to write a new "description" for every tool. MCP servers "self-describe," meaning the agent can ask the server "What can you do?" and the server hands over the manual automatically.</p>
+<hr />
+<h3 id="managing-stateful-tools">Managing Stateful Tools<a class="headerlink" href="#managing-stateful-tools" title="Permanent link">&para;</a></h3>
+<p>When an agent interacts with "state" (data that persists, like a database), the stakes are higher. A model might "optimize" a table by accidentally dropping all its rows.</p>
+<h4 id="safeguards-for-persistence">Safeguards for Persistence<a class="headerlink" href="#safeguards-for-persistence" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Narrow Scoping: Don't give an agent "arbitrary SQL" access. Instead, register specific tools like <code>get_user_profile</code> or <code>add_new_customer</code>.</li>
+<li>Sanitization: Use prepared statements and reject dangerous keywords like <code>DROP</code> or <code>ALTER</code> to prevent prompt injection attacks.</li>
+<li>Principle of Least Privilege: If an agent only needs to read data, ensure its database credentials do not have "write" or "delete" permissions.</li>
+<li>Observability: Log every tool invocation. Real-time alerts for suspicious patterns allow humans to intervene before an error cascades.</li>
+</ul>
+<hr />
+<h2 id="automated-tool-development">Automated Tool Development<a class="headerlink" href="#automated-tool-development" title="Permanent link">&para;</a></h2>
+<p>We are entering a phase where foundation models no longer just use tools—they build them.</p>
+<h3 id="foundation-models-as-tool-makers">Foundation Models as Tool Makers<a class="headerlink" href="#foundation-models-as-tool-makers" title="Permanent link">&para;</a></h3>
+<p>By feeding an LLM an API specification (like OpenAPI), the model can draft its own wrappers and helper functions. It can execute the code in a sandbox, see the error codes, and critique itself until the tool works. This turns a sprawling, messy API landscape into a lean, agent-ready toolkit.</p>
+<h3 id="real-time-code-generation">Real-Time Code Generation<a class="headerlink" href="#real-time-code-generation" title="Permanent link">&para;</a></h3>
+<p>Some agents can write and execute code on-the-fly to solve novel problems.</p>
+<ul>
+<li>The Upside: Incredible adaptability. The agent can interface with an unfamiliar API by writing the connection logic in real time.</li>
+<li>The Downside: Risk and repeatability. Code generated in real time might be inefficient, insecure, or produce different results every time it runs, making debugging a nightmare.</li>
+</ul>
+<hr />
+<h2 id="tool-use-configuration-and-reliability">Tool Use Configuration and Reliability<a class="headerlink" href="#tool-use-configuration-and-reliability" title="Permanent link">&para;</a></h2>
+<p>Modern APIs allow you to control how "eager" an agent is to use its tools:</p>
+<ul>
+<li>Auto: The model decides based on context.</li>
+<li>Required (Any): Forces the model to use at least one tool (useful when the task -requires- an action).</li>
+<li>None: Blocks all tool calls for pure text generation.</li>
+</ul>
+<h3 id="building-production-grade-reliability">Building Production-Grade Reliability<a class="headerlink" href="#building-production-grade-reliability" title="Permanent link">&para;</a></h3>
+<p>Even with the best configuration, agents can fail. Robust systems implement a Validation -&gt; Retry -&gt; Fallback loop:</p>
+<ul>
+<li>Validate: Check outputs against a schema (like Pydantic).</li>
+<li>Retry: Use intelligent logic like exponential backoff for minor network blips.</li>
+<li>Fallback: If all else fails, switch to a backup model, use cached data, or ask the user for help.</li>
+</ul>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>The toolkit is the most critical asset of a modern AI agent. Whether you are using precise Local Tools, expansive API-based Tools, or standardized MCP Services, the goal remains the same: provide the agent with the capabilities to succeed while maintaining strict boundaries of safety and reliability.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Chapter%200/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Introduction
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Chapter%205/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter 5: Orchestration">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chapter 5: Orchestration
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "navigation.instant", "navigation.top", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
