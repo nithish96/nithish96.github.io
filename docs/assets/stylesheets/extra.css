@@ -1,0 +1,9 @@
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.75rem 0;
+}
+
+.md-typeset pre > code {
+  tab-size: 4;
+}

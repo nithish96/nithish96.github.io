@@ -1,0 +1,10 @@
+{
+  "name": "ai-engineers-handbook-assets",
+  "private": true,
+  "scripts": {
+    "assets:katex": "node scripts/copy-katex.mjs"
+  },
+  "devDependencies": {
+    "katex": "0.16.22"
+  }
+}

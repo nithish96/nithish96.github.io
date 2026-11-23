@@ -1,0 +1,95 @@
+[project]
+site_name = "AI Engineers Handbook"
+site_url = "https://nithish96.github.io/"
+site_description = "Deep-dive notes for AI engineers on how modern language models are built, served, and turned into agents."
+nav = [
+  { "Home" = "index.md" },
+  { "Topics" = [
+    { "Foundations" = [
+      { "ML Foundations" = "topics/ml-foundations/index.md" },
+      { "Transformer Fundamentals" = "topics/transformer-fundamentals/index.md" },
+      { "Architecture" = "topics/architecture/index.md" },
+    ] },
+    { "Models" = [
+      { "Training Language Models" = "topics/training-language-models/index.md" },
+      { "Fine-Tuning Language Models" = "topics/fine-tuning-language-models/index.md" },
+      { "Reinforcement Learning" = "topics/reinforcement-learning/index.md" },
+      { "Inference Engineering" = "topics/inference-engineering/index.md" },
+    ] },
+    { "Building Applications" = [
+      { "Agents" = "topics/agents/index.md" },
+      { "Building GenAI Applications on AWS" = "topics/genai-applications-aws/index.md" },
+      { "AI System Design" = "topics/ai-system-design/index.md" },
+    ] },
+    { "Search & Trust" = [
+      { "Search & Retrieval" = "topics/search-retrieval/index.md" },
+      { "Trustworthy AI" = "topics/trustworthy-ai/index.md" },
+    ] },
+  ] },
+  { "Blog" = ["blog/index.md"] },
+]
+extra_javascript = [
+  "assets/javascripts/katex.js",
+  "assets/katex/katex.min.js",
+  "assets/katex/contrib/auto-render.min.js",
+]
+extra_css = [
+  "assets/katex/katex.min.css",
+  "assets/stylesheets/extra.css",
+]
+
+[project.theme]
+language = "en"
+features = [
+  "content.code.copy",
+  "navigation.instant",
+  "navigation.path",
+  "navigation.sections",
+  "navigation.tabs",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  "toc.follow",
+]
+
+[[project.theme.palette]]
+scheme = "slate"
+primary = "deep purple"
+accent = "deep purple"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+scheme = "default"
+primary = "deep purple"
+accent = "deep purple"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to dark mode"
+
+[project.plugins.search]
+
+[project.plugins.tags]
+
+[project.plugins.blog]
+blog_dir = "blog"
+post_url_format = "{categories}/{slug}"
+post_excerpt = "required"
+post_readtime = true
+categories_allowed = [
+  "Foundations",
+  "Transformer Fundamentals",
+  "Training Language Models",
+]
+
+[project.markdown_extensions]
+abbr = {}
+admonition = {}
+attr_list = {}
+md_in_html = {}
+tables = {}
+toc.permalink = true
+pymdownx.arithmatex.generic = true
+pymdownx.details = {}
+pymdownx.highlight.anchor_linenums = true
+pymdownx.inlinehilite = {}
+pymdownx.superfences = {}
