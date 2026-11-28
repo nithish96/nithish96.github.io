@@ -8,21 +8,13 @@ Explore the topics to build a foundation in machine learning, understand transfo
 
 <div class="grid cards" markdown>
 
--   **Transformer Fundamentals**
+-   [**Transformer Fundamentals**](topics/transformer-fundamentals/index.md)
 
-	**5 chapters**
+	A practical guide to the architecture behind modern language models.
 
-	---
-
-	[Explore Transformer Fundamentals](topics/transformer-fundamentals/index.md)
-
--   **Architecture**
+-   [**Architecture**](topics/architecture/index.md)
 
 	Core components and design patterns behind modern AI systems.
-
-	---
-
-	[Explore Architecture](topics/architecture/index.md)
 
 </div>
 
@@ -30,29 +22,17 @@ Explore the topics to build a foundation in machine learning, understand transfo
 
 <div class="grid cards" markdown>
 
--   **Agents**
+-   [**Agents**](topics/agents/index.md)
 
 	Design agent loops, tools, memory, and orchestration.
 
-	---
-
-	[Explore Agents](topics/agents/index.md)
-
--   **Building GenAI Applications on AWS**
+-   [**Building GenAI Applications on AWS**](topics/genai-applications-aws/index.md)
 
 	Apply AWS services and patterns to generative AI applications.
 
-	---
-
-	[Explore GenAI on AWS](topics/genai-applications-aws/index.md)
-
--   **AI System Design**
+-   [**AI System Design**](topics/ai-system-design/index.md)
 
 	Design reliable, scalable end-to-end AI systems.
-
-	---
-
-	[Explore AI System Design](topics/ai-system-design/index.md)
 
 </div>
 
@@ -60,20 +40,12 @@ Explore the topics to build a foundation in machine learning, understand transfo
 
 <div class="grid cards" markdown>
 
--   **Search & Retrieval**
+-   [**Search & Retrieval**](topics/search-retrieval/index.md)
 
 	Build retrieval systems that connect models to useful knowledge.
 
-	---
-
-	[Explore Search & Retrieval](topics/search-retrieval/index.md)
-
--   **Trustworthy AI**
+-   [**Trustworthy AI**](topics/trustworthy-ai/index.md)
 
 	Consider safety, privacy, evaluation, and responsible deployment.
-
-	---
-
-	[Explore Trustworthy AI](topics/trustworthy-ai/index.md)
 
 </div>
