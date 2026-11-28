@@ -7,5 +7,7 @@ document$.subscribe(() => {
       { left: "$", right: "$", display: false },
     ],
     throwOnError: false,
+    strict: false, 
+    trust: true
   });
 });

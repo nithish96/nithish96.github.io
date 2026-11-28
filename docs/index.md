@@ -4,17 +4,9 @@ Deep-dive notes for AI engineers on how modern language models are built, served
 
 Explore the topics to build a foundation in machine learning, understand transformer architectures, and follow the process of training and serving language models.
 
-## Foundations
+## Core Topics
 
 <div class="grid cards" markdown>
-
--   **ML Foundations**
-
-	**8 chapters**
-
-	---
-
-	[Explore ML Foundations](topics/ml-foundations/index.md)
 
 -   **Transformer Fundamentals**
 

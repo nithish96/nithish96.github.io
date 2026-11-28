@@ -5,11 +5,8 @@ site_description = "Deep-dive notes for AI engineers on how modern language mode
 nav = [
   { "Home" = "index.md" },
   { "Topics" = [
-    { "Foundations" = [
-      { "ML Foundations" = "topics/ml-foundations/index.md" },
-      { "Transformer Fundamentals" = "topics/transformer-fundamentals/index.md" },
-      { "Architecture" = "topics/architecture/index.md" },
-    ] },
+    { "Transformer Fundamentals" = "topics/transformer-fundamentals/index.md" },
+    { "Architecture" = "topics/architecture/index.md" },
     { "Models" = [
       { "Training Language Models" = "topics/training-language-models/index.md" },
       { "Fine-Tuning Language Models" = "topics/fine-tuning-language-models/index.md" },
@@ -29,9 +26,9 @@ nav = [
   { "Blog" = ["blog/index.md"] },
 ]
 extra_javascript = [
-  "assets/javascripts/katex.js",
   "assets/katex/katex.min.js",
   "assets/katex/contrib/auto-render.min.js",
+  "assets/javascripts/katex.js",
 ]
 extra_css = [
   "assets/katex/katex.min.css",
@@ -92,4 +89,6 @@ pymdownx.arithmatex.generic = true
 pymdownx.details = {}
 pymdownx.highlight.anchor_linenums = true
 pymdownx.inlinehilite = {}
-pymdownx.superfences = {}
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]

@@ -1,7 +1,34 @@
 .katex-display {
+  margin: 0;
+  padding: 0;
+  line-height: 1.15;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0.75rem 0;
+}
+
+.md-typeset div.arithmatex {
+  margin: 0;
+  line-height: 1.15;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.md-typeset div.arithmatex + div.arithmatex {
+  margin-top: -0.15rem;
+}
+
+.md-typeset p + div.arithmatex,
+.md-typeset div.arithmatex + p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.md-typeset div.arithmatex > .katex-display {
+  margin: 0;
+  padding: 0;
+  line-height: 1.15;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .md-typeset pre > code {
