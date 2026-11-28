@@ -350,7 +350,7 @@ Several approaches have been developed to address this limitation. These include
 
 To understand why these approaches matter, we also need to examine arithmetic intensity, which helps explain how efficiently hardware performs these computations.
 
-### 1. Attention Time Complexity
+### Attention Time Complexity
 
 The computational complexity of standard self-attention is \(O(N^2d)\).
 
@@ -381,7 +381,7 @@ This becomes particularly expensive when processing long documents, large contex
 
 The primary objective of efficient attention mechanisms is to reduce these costs while preserving useful information flow between tokens.
 
-### 2. Sliding Window Attention
+### Sliding Window Attention
 
 Sliding Window Attention reduces computational cost by restricting each token to attending only to a fixed number of neighboring tokens.
 
@@ -433,7 +433,7 @@ When \(w\) is significantly smaller than \(N\), the computational complexity bec
 
 **Key idea:** Sliding window attention trades unrestricted global connectivity for efficient local connectivity.
 
-### 3. Strided Attention
+### Strided Attention
 
 Strided Attention reduces the number of token interactions by selecting tokens at regular intervals rather than considering every position.
 
@@ -479,7 +479,7 @@ The exact complexity depends on how the strided pattern is implemented.
 
 **Key idea:** Sliding window attention focuses on nearby consecutive tokens, whereas strided attention samples positions at regular intervals.
 
-### 4. Linear and Kernel Attention
+### Linear and Kernel Attention
 
 Linear Attention aims to reduce the quadratic complexity of standard attention to linear complexity with respect to sequence length.
 
@@ -558,7 +558,7 @@ This reduces the dependence on sequence length from quadratic to linear for a fi
 
 **Key idea:** Linear and kernel attention change the mathematical computation to avoid explicitly calculating all pairwise token interactions.
 
-### 5. Arithmetic Intensity
+### Arithmetic Intensity
 
 Arithmetic Intensity is an important concept in understanding the hardware efficiency of attention mechanisms.
 
@@ -644,7 +644,7 @@ Although it retains the exact standard attention computation (up to floating-poi
 
 **Key idea:** Arithmetic intensity helps explain why reducing memory movement can be just as important as reducing the number of mathematical operations.
 
-### 6. Comparison of Attention Mechanisms
+### Comparison of Attention Mechanisms
 
 | Attention mechanism | Computational complexity | Main idea |
 |---|---|---|

@@ -7,12 +7,6 @@ nav = [
   { "Topics" = [
     { "Transformer Fundamentals" = "topics/transformer-fundamentals/index.md" },
     { "Architecture" = "topics/architecture/index.md" },
-    { "Models" = [
-      { "Training Language Models" = "topics/training-language-models/index.md" },
-      { "Fine-Tuning Language Models" = "topics/fine-tuning-language-models/index.md" },
-      { "Reinforcement Learning" = "topics/reinforcement-learning/index.md" },
-      { "Inference Engineering" = "topics/inference-engineering/index.md" },
-    ] },
     { "Building Applications" = [
       { "Agents" = "topics/agents/index.md" },
       { "Building GenAI Applications on AWS" = "topics/genai-applications-aws/index.md" },
@@ -23,7 +17,6 @@ nav = [
       { "Trustworthy AI" = "topics/trustworthy-ai/index.md" },
     ] },
   ] },
-  { "Blog" = ["blog/index.md"] },
 ]
 extra_javascript = [
   "assets/katex/katex.min.js",
@@ -75,7 +68,6 @@ post_readtime = true
 categories_allowed = [
   "Foundations",
   "Transformer Fundamentals",
-  "Training Language Models",
 ]
 
 [project.markdown_extensions]
@@ -85,6 +77,7 @@ attr_list = {}
 md_in_html = {}
 tables = {}
 toc.permalink = true
+toc.toc_depth = 3
 pymdownx.arithmatex.generic = true
 pymdownx.details = {}
 pymdownx.highlight.anchor_linenums = true

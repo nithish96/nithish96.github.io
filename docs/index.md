@@ -26,44 +26,6 @@ Explore the topics to build a foundation in machine learning, understand transfo
 
 </div>
 
-## Models
-
-<div class="grid cards" markdown>
-
--   **Training Language Models**
-
-	**13 chapters**
-
-	---
-
-	[Explore Training Language Models](topics/training-language-models/index.md)
-
--   **Fine-Tuning Language Models**
-
-	Adapt pretrained models to tasks, domains, and desired behavior.
-
-	---
-
-	[Explore Fine-Tuning](topics/fine-tuning-language-models/index.md)
-
--   **Reinforcement Learning**
-
-	Learn how feedback and reward signals shape model behavior.
-
-	---
-
-	[Explore Reinforcement Learning](topics/reinforcement-learning/index.md)
-
--   **Inference Engineering**
-
-	Improve model serving for latency, throughput, and cost.
-
-	---
-
-	[Explore Inference Engineering](topics/inference-engineering/index.md)
-
-</div>
-
 ## Building Applications
 
 <div class="grid cards" markdown>
