@@ -60,16 +60,6 @@ toggle.name = "Switch to dark mode"
 
 [project.plugins.tags]
 
-[project.plugins.blog]
-blog_dir = "blog"
-post_url_format = "{categories}/{slug}"
-post_excerpt = "required"
-post_readtime = true
-categories_allowed = [
-  "Foundations",
-  "Transformer Fundamentals",
-]
-
 [project.markdown_extensions]
 abbr = {}
 admonition = {}
